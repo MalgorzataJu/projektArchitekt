@@ -1,8 +1,7 @@
-import {Column, Entity, OneToOne, PrimaryGeneratedColumn} from "typeorm";
-import {UserEntity} from "./User.entity";
+import {BaseEntity, Column, Entity, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 
-@Entity({name: 'user_profile'})
-export class ProfileEntity {
+@Entity({name: 'users_profile'})
+export class ProfileEntity extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: string;
 
@@ -12,7 +11,9 @@ export class ProfileEntity {
     @Column()
     lastName: string;
 
-    @Column()
+    @Column({
+        nullable:true,
+    })
     hourly: number;
-    
+
 }

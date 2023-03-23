@@ -4,15 +4,17 @@ import {
     Column,
     CreateDateColumn,
     Entity,
-    JoinColumn,
+    JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany,
     OneToOne,
     PrimaryGeneratedColumn
 } from "typeorm";
 import {ProfileEntity} from "./Profile.entity";
+import {HourEntity} from "./Hour.entity";
+import {TaskEntity} from "./Task.entity";
 
 
-@Entity({name: 'users'})
-export class UserEntity extends BaseEntity{
+@Entity({name: 'employees'})
+export class EmployeeEntity extends BaseEntity{
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -36,4 +38,13 @@ export class UserEntity extends BaseEntity{
     @OneToOne((type)=> ProfileEntity)
     @JoinColumn()
     profile:ProfileEntity;
+
+    @OneToMany(type => HourEntity, entity => entity.employee.id)
+    @JoinTable()
+    hour:HourEntity[];
+
+    @OneToMany(type => TaskEntity, entity => entity.employees.id)
+    @JoinTable()
+    tasks:TaskEntity[]
+
 }
