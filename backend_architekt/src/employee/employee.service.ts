@@ -1,66 +1,66 @@
-import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
-import {InjectRepository} from "@nestjs/typeorm";
-import {Repository} from "typeorm";
-import {CreateUserParams, CreateUserProfileParams, RegisterUserRespon, UpdateUserParams} from "../utils/types";
-import {ProfileEntity} from "../entities/Profile.entity";
-import {EmployeeEntity} from "../entities/epmloyee.entity";
-import {CreateUserDto} from "./dto/register.dto";
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { EmployeeEntity } from '../entities/epmloyee.entity';
+import { ProfileEntity } from '../entities/Profile.entity';
+import { Repository } from 'typeorm';
+import {
+  CreateEmployeeProfileParams,
+  RegisterEmployeeRespon,
+} from '../utils/types';
+import { CreateEmployeeDto } from './dto/createEmployee.dto';
+import { UpdateEmployeeDto } from "./dto/updateUser.dto";
 
 @Injectable()
 export class EmployeeService {
+  constructor(
+    @InjectRepository(EmployeeEntity)
+    private employeeRepository: Repository<EmployeeEntity>,
+    @InjectRepository(ProfileEntity)
+    private profileRepository: Repository<ProfileEntity>,
+  ) {}
 
-    constructor(
-        @InjectRepository(EmployeeEntity) private userRepository: Repository<EmployeeEntity>,
-        @InjectRepository(ProfileEntity) private profileRepository: Repository<ProfileEntity>,
-    ) {
+  async findUsers() {
+    const employee = await EmployeeEntity.find({
+      // relations: ['profile'],
+    });
+    return employee;
+  }
 
-    }
+  async createUser(
+    userDetails: CreateEmployeeDto,
+  ): Promise<RegisterEmployeeRespon> {
+    const newUser = this.employeeRepository.create({
+      ...userDetails,
+      createdAt: new Date(),
+    });
 
-    findUsers() {
-        return this.userRepository.find({
-            relations: ['profile'],
-        });
-    }
+    return this.employeeRepository.save(newUser);
+  }
 
-    createUser(userDetails: CreateUserParams) {
-        const newUser = this.userRepository.create({
-            ...userDetails,
-            createdAt: new Date(),
-        });
+  async updateUser(id: string, updateUserDetail: UpdateEmployeeDto) {
+    return await this.employeeRepository.update(
+      { id },
+      { ...updateUserDetail },
+    );
+  }
 
-        return this.userRepository.save(newUser)
-    }
+  async deleteUser(id: string) {
+    return await this.employeeRepository.delete({ id });
+  }
 
-    async register(newUser: CreateUserDto): Promise<RegisterUserRespon> {
-        const user = new EmployeeEntity();
-        user.email = newUser.email;
-        user.password = newUser.password;
-        await user.save();
-
-        return user;
-    }
-
-    async updateUser(id: string, updateUserDetail: UpdateUserParams) {
-        return await this.userRepository.update({id},{...updateUserDetail})
-    }
-
-    async deleteUser(id: string) {
-        return await this.userRepository.delete({id});
-    }
-
-    async createUserProfile(
-        id: string,
-        createUserProfileDetails: CreateUserProfileParams
-    ) {
-        const user = await this.userRepository.findOneBy({id});
-        if (!user)
-            throw new HttpException(
-                'User not found. Cannot create Profile',
-                HttpStatus.BAD_REQUEST,
-            );
-        const newProfile = this.profileRepository.create( createUserProfileDetails);
-        const savedProfile = await this.profileRepository.save(newProfile);
-        user.profile = savedProfile;
-        return this.userRepository.save(user);
-    }
+  async createUserProfile(
+    id: string,
+    createUserProfileDetails: CreateEmployeeProfileParams,
+  ) {
+    const user = await this.employeeRepository.findOneBy({ id });
+    if (!user)
+      throw new HttpException(
+        'User not found. Cannot create Profile',
+        HttpStatus.BAD_REQUEST,
+      );
+    const newProfile = this.profileRepository.create(createUserProfileDetails);
+    const savedProfile = await this.profileRepository.save(newProfile);
+    user.profile = savedProfile;
+    return this.employeeRepository.save(user);
+  }
 }
