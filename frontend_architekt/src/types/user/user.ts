@@ -1,5 +1,3 @@
-import {Column} from "typeorm";
-
 export type CreateUserParams = {
     password: string;
     email: string;

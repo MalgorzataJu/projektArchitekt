@@ -1,0 +1,41 @@
+.UserListOneItem {
+    margin: 5px 10px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: background-color 0.5s;
+}
+
+.UserListOneItem:hover {
+    background-color:#efefef;
+}
+.UserListOneItem__photo {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+
+.UsersList {
+    list-style: none;
+    padding: 0px;
+    padding: 0px;
+    margin-right: 25px;
+    border: #efefef 1px solid;
+
+}
+.UserListOneItem__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.UserListOneItem__text p{
+    margin: 0px;
+}
+
+.UserListOneItem__username {
+    font-size: 75%;
+    color: gray;
+}

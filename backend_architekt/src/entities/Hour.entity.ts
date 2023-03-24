@@ -37,6 +37,4 @@ export class HourEntity extends BaseEntity{
 
     @UpdateDateColumn({ type: 'timestamp' })
     updatedAt: Date;
-
-
 }

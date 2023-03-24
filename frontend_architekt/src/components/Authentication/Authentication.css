@@ -1,0 +1,11 @@
+.authentication-wrapper {
+    position: fixed;
+    right:2rem;
+}
+
+.authentication-wrapper .btn{
+    padding: 0;
+    text-align: right;
+    position: fixed;
+    right: 0;
+}

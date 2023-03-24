@@ -7,9 +7,10 @@ import {
 } from "typeorm";
 import {EmployeeEntity} from "./epmloyee.entity";
 import {ProjectEntity} from "./Project.entity";
+import { TaskItemEntity } from "../utils/types";
 
 @Entity({name: 'tasks'})
-export class TaskEntity extends BaseEntity{
+export class TaskEntity extends BaseEntity implements TaskItemEntity{
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
