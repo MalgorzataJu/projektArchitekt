@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Inject, Param, Post, Put } from "@nestjs
 import { TaskService } from "./task.service";
 import { CreateTaskDto } from "./dto/createTask.dto";
 import { UpdateTaskDto } from "./dto/updateTask.dto";
-import { ListTaskResAll } from "../utils/types";
+import { ListHourResAll, ListTaskResAll } from "../utils/types";
 
 
 @Controller('/task')
@@ -13,6 +13,19 @@ export class TaskController {
   @Get('/')
   getTask(): Promise<ListTaskResAll> {
     return this.taskService.listAll();
+  }
+
+  @Get('/:employeeId')
+  getTasksByEmployeeId(@Param('employeeId') id: string): Promise<ListHourResAll> {
+    return this.taskService.getAllForEmployees(id);
+  }
+
+  @Get('/:employeeId/:projectId')
+  getTasksByEmployeeIdAndProjectId(
+    @Param('employeeId') employeeId: string,
+    @Param('eprojectId') projectId: string,
+  ): Promise<ListHourResAll> {
+    return this.taskService.getAllForEmployeesAndProject(employeeId,projectId);
   }
 
   @Post('/')

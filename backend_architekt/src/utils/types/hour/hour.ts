@@ -1,22 +1,17 @@
 
 
-export interface CreateHourRecord extends Omit<HourEntity, 'id'> {
+export interface CreateHourRecord extends Omit<HourItemEntity, 'id'> {
     id?:string;
 }
 
-export interface HourEntity {
+export interface HourItemEntity {
     id?: string;
-    projectId: string;
-    employeeId: string;
-    kindofworkId: string;
     quantity: number;
-    date: string;
-    timeAd?: string;
 }
 
 export interface ListHourRes {
     place: number;
-    hour: HourEntity;
+    hour: HourItemEntity;
 }
 
 export interface ListAllToAddHoursRes{

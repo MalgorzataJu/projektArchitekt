@@ -3,3 +3,6 @@ export * from './projekt';
 export * from './hour';
 export * from './kindOfWork';
 export * from './task';
+
+export class ListHourResAll {
+}

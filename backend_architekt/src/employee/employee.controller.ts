@@ -22,32 +22,32 @@ export class EmployeeController {
   ) {}
 
   @Get('/')
-  getUser() {
-    return this.employeeService.findUsers();
+  getEmployee(){
+    return this.employeeService.findEmployee();
   }
 
   @Post('/')
-  createUser(@Body() newUser: CreateEmployeeDto) {
-    this.employeeService.createUser(newUser);
+  createEmployee(@Body() newUser: CreateEmployeeDto) {
+    this.employeeService.createEmployee(newUser);
   }
 
   @Put('/:id')
-  updateUserById(
+  updateEmployeeById(
     @Param('id') id: string,
     @Body() updateUserDto: UpdateEmployeeDto,
   ) {
-    this.employeeService.updateUser(id, updateUserDto);
+    this.employeeService.updateEmployee(id, updateUserDto);
   }
   @Delete('/:id')
-  deleteUserById(@Param('id') id: string) {
-    this.employeeService.deleteUser(id);
+  deleteEmployeeById(@Param('id') id: string) {
+    this.employeeService.deleteEmployee(id);
   }
 
   @Post(':id/profiles')
-  createUserProfile(
+  createEmployeeProfile(
     @Param('id') id: string,
     @Body() userProfile: CreateEmployeeProfileParams,
   ) {
-    return this.employeeService.createUserProfile(id, userProfile);
+    return this.employeeService.createEmployeeProfile(id, userProfile);
   }
 }

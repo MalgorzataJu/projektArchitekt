@@ -6,6 +6,7 @@ import { EmployeeModule } from './employee/employee.module';
 import { ProjectModule } from './project/project.module';
 import { TaskModule } from './task/task.module';
 import { KindOfWorkModule } from './kind-of-work/kind-of-work.module';
+import { HourModule } from "./hour/hour.module";
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { KindOfWorkModule } from './kind-of-work/kind-of-work.module';
     ProjectModule,
     KindOfWorkModule,
     TaskModule,
+    HourModule,
   ],
 
   controllers: [AppController],

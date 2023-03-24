@@ -4,34 +4,34 @@ import { Repository } from 'typeorm';
 import { KindOfWorkEntity } from '../entities/Kind-of-work.entity';
 import { CreateKindofworkDto } from "./dto/createKindofwork.dto";
 import { KindOfWorkItemEntity } from "../utils/types";
+import { ProjectEntity } from "../entities/Project.entity";
 
 @Injectable()
 export class KindOfWorkService {
-  constructor(
-    @InjectRepository(KindOfWorkEntity)
-    private kindOfWorkRepository: Repository<KindOfWorkEntity>,
-  ) {}
 
   async findKindOfWork() {
     return await KindOfWorkEntity.find();
   }
 
+  async getOneKindOfWork(id: string): Promise<KindOfWorkEntity> {
+    return KindOfWorkEntity.findOne({ where: { id } });
+  }
   async createKindOfWork(kindofWork: CreateKindofworkDto): Promise<CreateKindofworkDto> {
-    const newKinofwork = this.kindOfWorkRepository.create({
+    const newKinofwork = KindOfWorkEntity.create({
       ...kindofWork,
     });
     console.log(newKinofwork);
-    return this.kindOfWorkRepository.save(newKinofwork);
+    return KindOfWorkEntity.save(newKinofwork);
   }
 
   async updateKindOfWork(id: string, updatenewKindofWorkDetail: KindOfWorkItemEntity) {
-    return await this.kindOfWorkRepository.update(
+    return await KindOfWorkEntity.update(
       { id },
       { ...updatenewKindofWorkDetail },
     );
   }
 
   async deleteKindOfWork(id: string) {
-    return await this.kindOfWorkRepository.delete({ id });
+    return await KindOfWorkEntity.delete({ id });
   }
 }

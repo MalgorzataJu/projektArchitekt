@@ -5,7 +5,7 @@ import {
     Entity, JoinTable, ManyToMany, ManyToOne, OneToMany,
     PrimaryGeneratedColumn, UpdateDateColumn
 } from "typeorm";
-import {EmployeeEntity} from "./epmloyee.entity";
+import {EmployeeEntity} from "./Employee.entity";
 import {ProjectEntity} from "./Project.entity";
 import { TaskItemEntity } from "../utils/types";
 
@@ -34,7 +34,7 @@ export class TaskEntity extends BaseEntity implements TaskItemEntity{
 
     @ManyToOne( () => EmployeeEntity, entity => entity.id)
     @JoinTable()
-    employees: EmployeeEntity;
+    employee: EmployeeEntity;
 
     @ManyToOne(type => ProjectEntity, entity => entity.id)
     @JoinTable()

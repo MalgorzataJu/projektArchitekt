@@ -43,9 +43,9 @@ export class EmployeeEntity extends BaseEntity {
 
   @OneToMany((type) => HourEntity, (entity) => entity.employee.id)
   @JoinTable()
-  hour: HourEntity[];
+  hours: HourEntity[];
 
-  @OneToMany((type) => TaskEntity, (entity) => entity.employees.id)
+  @OneToMany((type) => TaskEntity, (entity) => entity.employee.id)
   @JoinTable()
   tasks: TaskEntity[];
 }
