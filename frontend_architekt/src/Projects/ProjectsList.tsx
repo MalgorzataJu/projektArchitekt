@@ -1,14 +1,12 @@
 import {useEffect, useState} from "react";
+import {ListProjectResAll} from 'types';
 import {Spinner} from "../components/common/spiner/spinner";
 import {ProjectTable} from "./ProjectTable";
-import {ListProjectResAll} from "../types";
 
 
 export const ProjectsList = () => {
     // const [projects, setProjects] = useState<ListProjectRes[] | null>([]);
-    const [projects, setProjects] = useState<ListProjectResAll[] | null>([]);
-    const [access, setAccess] = useState<string>('admin');
-
+    const [projects, setProjects] = useState<ListProjectResAll | null>([]);
 
     const refreshProject = async () => {
         setProjects(null)
@@ -16,7 +14,6 @@ export const ProjectsList = () => {
         const data = await res.json();
 
         setProjects(data);
-        setAccess('admin');
     };
 
     useEffect(() => {
@@ -28,5 +25,5 @@ export const ProjectsList = () => {
         return <Spinner/>;
     }
 
-    return <ProjectTable access={access} projects={projects} onProjectsChange={refreshProject}/>
+    return <ProjectTable projects={projects} onProjectsChange={refreshProject}/>
 }

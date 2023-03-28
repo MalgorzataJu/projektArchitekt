@@ -1,10 +1,8 @@
-
+import {ListProjectResAll} from "types";
 import {ProjectTableRow} from "./ProjectTableRow";
-import {ListProjectResAll} from "../types";
 
 interface Props {
-    projects: ListProjectResAll[];
-    access: string;
+    projects: ListProjectResAll;
     onProjectsChange: () => void;
 }
 

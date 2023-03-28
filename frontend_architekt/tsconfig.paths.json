@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "types": [
-        "../utils/types"
+        "../backend_architekt/src/utils/types"
       ]
     }
   }

@@ -1,15 +1,15 @@
 import React, {FormEvent, useState} from 'react';
+import {CreateProject, ProjectItemEntity} from 'types';
 import {Spinner} from "../../components/common/spiner/spinner";
 import './AddProject.css';
-import {CreateProjectReq, ProjectEntity} from "../../types";
 
 export const AddProject = () => {
-    const [form, setForm] = useState<CreateProjectReq>({
+    const [form, setForm] = useState<CreateProject>({
         name: '',
         startDate: '',
         endDate: '',
         description: '',
-        quantityHours: '50',
+        quantityHours: 50,
         contact: '',
 
     });
@@ -28,14 +28,14 @@ export const AddProject = () => {
 
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:3001/api/project`, {
+            const res = await fetch(`http://localhost:3001/project`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(form),
             });
-            const data: ProjectEntity = await res.json();
+            const data: ProjectItemEntity = await res.json();
 
             setResultInfo(`${data.name} has been created.`);
         } finally {

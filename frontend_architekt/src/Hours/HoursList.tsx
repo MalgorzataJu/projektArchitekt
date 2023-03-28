@@ -1,8 +1,7 @@
 import {useEffect, useState} from "react";
-
+import {ListHourRes} from 'types';
 import {Spinner} from "../components/common/spiner/spinner";
 import {AddHours} from "./AddHours/AddHours";
-import {ListHourRes} from "../types";
 
 export const HoursList = () => {
     const [hours, setHours] = useState<ListHourRes[] | null>([]);

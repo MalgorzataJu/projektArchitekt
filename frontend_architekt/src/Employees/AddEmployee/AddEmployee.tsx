@@ -1,19 +1,20 @@
 import React, {FormEvent, useState} from 'react';
+import {RegisterEmployeeRes} from 'types';
 import {Spinner} from "../../components/common/spiner/spinner";
 import './AddEmployee.css';
-import {CreateEmpoyeeRecord} from "../../types";
 
 interface Props {
     onEmployeeChange: () => void;
 }
 
 export const AddEmployee = (props:Props) => {
-    const [form, setForm] = useState<CreateEmpoyeeRecord>({
+    const [form, setForm] = useState<RegisterEmployeeRes>({
         name: '',
-        surname: '',
+        lastname: '',
         email: '',
         password: '',
-        hourlyrate: 0,
+        confirm: '',
+        hourly: 0,
 
     });
     const [loading, setLoading] = useState<boolean>(false);
@@ -80,7 +81,7 @@ export const AddEmployee = (props:Props) => {
                         className="InputForm"
                         type="text"
                         name="surname"
-                        value={form.surname}
+                        value={form.lastname}
                         onChange={e => updateForm('surname', e.target.value)}
                     />
                 </label>
@@ -116,7 +117,7 @@ export const AddEmployee = (props:Props) => {
                         className="InputForm"
                         type="number"
                         name = "hourlyrate"
-                        value={form.hourlyrate}
+                        value={form.hourly}
                         onChange={e => updateForm('hourlyrate', e.target.value)}
                     />
                 </label>

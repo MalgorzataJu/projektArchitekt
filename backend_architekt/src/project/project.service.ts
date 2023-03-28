@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ProjectEntity } from '../entities/Project.entity';
-import { ListProjectResAll } from '../utils/types';
+import { ListProjectRes, ListProjectResAll } from "../utils/types";
 import { CreateProjectDto } from "./dto/createProject.dto";
 import { UpdateProjectDto } from "./dto/updateProject.dto";
 
@@ -8,10 +8,14 @@ import { UpdateProjectDto } from "./dto/updateProject.dto";
 export class ProjectService {
 
   async listAll(): Promise<ListProjectResAll> {
-    const projects = ProjectEntity.find({
-      // relations: ['tasks'],
+    const projects = await ProjectEntity.find();
+    const restProject = projects.map((p, index) => {
+      return {
+        place: index + 1,
+        project: p,
+      };
     });
-    return projects;
+    return restProject;
   }
 
   async getOneProject(id: string): Promise<ProjectEntity> {

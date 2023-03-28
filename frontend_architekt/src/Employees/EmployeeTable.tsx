@@ -1,6 +1,5 @@
-
+import { ListEmployeeResAll } from "types";
 import {EmployeeTableRow} from "./EmployeeTableRow";
-import {ListEmployeeResAll} from "../types";
 
 interface Props {
     list: ListEmployeeResAll[],
@@ -8,7 +7,7 @@ interface Props {
 }
 
 export const EmployeeTable =(props: Props) => {
-
+    console.log(props);
     return (
             <table className="UsersList">
                 <thead>

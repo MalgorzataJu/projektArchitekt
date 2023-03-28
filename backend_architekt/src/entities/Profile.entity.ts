@@ -3,7 +3,7 @@ import {BaseEntity, Column, Entity, OneToOne, PrimaryGeneratedColumn} from "type
 @Entity({name: 'users_profile'})
 export class ProfileEntity extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id?: string;
 
     @Column()
     name: string;

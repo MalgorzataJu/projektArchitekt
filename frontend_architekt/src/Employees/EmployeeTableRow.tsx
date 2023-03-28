@@ -1,5 +1,5 @@
 import React from "react";
-import {EmployeeEntity} from "../types";
+import { EmployeeEntity } from "types";
 
 interface Props {
     key: string | undefined,
@@ -17,7 +17,7 @@ export const EmployeeTableRow = (props : Props) => {
             return;
         }
 
-        const res = await fetch(`http://127.0.0.1:3001/api/employee/${props.employee.id}`, {
+        const res = await fetch(`http://127.0.0.1:3001/employee/${props.employee.id}`, {
             method: 'DELETE',
         });
 
@@ -33,18 +33,18 @@ export const EmployeeTableRow = (props : Props) => {
         <tr  className="UserListOneItem">
             <th>{props.place}</th>
             <td>
-                {props.employee.name}
+                {props.employee.profile.name}
                 {/*<Link to={`/gift/${props.gift.id}`}>*/}
                 {/*</Link>*/}
             </td>
             <td>
-                {props.employee.surname}
+                {props.employee.profile.lastname}
             </td>
             <td>
                 {props.employee.email}
             </td>
             <td>
-                {props.employee.hourlyrate}
+                {props.employee.profile.hourly}
             </td>
             <td>
                 <a href="#" onClick={deleteEmployee}>🗑️</a>

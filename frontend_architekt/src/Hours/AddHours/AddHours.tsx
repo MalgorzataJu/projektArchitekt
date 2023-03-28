@@ -1,6 +1,6 @@
 import React, {FormEvent, useEffect, useState} from 'react';
+import {CreateHourRecord, ListAllToAddHoursRes} from 'types';
 import {Spinner} from "../../components/common/spiner/spinner";
-import {CreateHourRecord, ListAllToAddHoursRes} from "../../types";
 
 interface Props {
     // onEmployeeChange: () => void;
@@ -97,11 +97,11 @@ export const AddHours = (props: Props) => {
                     onChange={e => updateForm('employeeId', e.target.value)}
                 >
                     {
-                        // data.employeeList.map(employee => (
-                        //     <option key={employee.id} value={employee.id}>
-                        //         {employee.name} {employee.surname}
-                        //     </option>
-                        // ))
+                        data.employeeList.map(employee => (
+                            <option key={employee.id} value={employee.id}>
+                                {employee.name} {employee.lastname}
+                            </option>
+                        ))
                     }
                 </select>
             </div>
@@ -113,11 +113,11 @@ export const AddHours = (props: Props) => {
                     onChange={e => updateForm('projectId', e.target.value)}
                 >
                     {
-                        // data.projectList.map(project => (
-                        //     <option key={project.id} value={project.id}>
-                        //         {project.name}
-                        //     </option>
-                        // ))
+                        data.projectList.map(project => (
+                            <option key={project.id} value={project.id}>
+                                {project.name}
+                            </option>
+                        ))
                     }
                 </select>
             </div>
@@ -129,11 +129,11 @@ export const AddHours = (props: Props) => {
                     onChange={e => updateForm('kindofworkId', e.target.value)}
                 >
                     {
-                        // data.kindofworkList.map(k => (
-                        //     <option key={k.id} value={k.id}>
-                        //         {k.hourstype}
-                        //     </option>
-                        // ))
+                        data.kindofworkList.map(k => (
+                            <option key={k.id} value={k.id}>
+                                {k.hourstype}
+                            </option>
+                        ))
                     }
                 </select>
             </div>

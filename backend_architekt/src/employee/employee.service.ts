@@ -1,36 +1,49 @@
-import { HttpException, HttpStatus, Inject, Injectable, Scope } from "@nestjs/common";
+import {
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+  Scope,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { EmployeeEntity } from '../entities/Employee.entity';
 import { ProfileEntity } from '../entities/Profile.entity';
 import { Repository } from 'typeorm';
 import {
-  CreateEmployeeProfileParams, RegisterEmployeeRespon
-} from "../utils/types";
-import { UpdateEmployeeDto } from "./dto/updateUser.dto";
-import { RegisterEmployeeRegDto } from "./dto/registerEmployeeReg.dto";
-import { hashPwd } from "../utils/hash-pwd";
-
+  CreateEmployeeProfileParams,
+  ListEmployeeResAll,
+  RegisterEmployeeRespon,
+} from '../utils/types';
+import { UpdateEmployeeDto } from './dto/updateUser.dto';
+import { RegisterEmployeeRegDto } from './dto/registerEmployeeReg.dto';
+import { hashPwd } from '../utils/hash-pwd';
 
 @Injectable()
 export class EmployeeService {
   constructor(
     @InjectRepository(ProfileEntity)
     private profileRepository: Repository<ProfileEntity>,
-
   ) {}
   async findEmployee() {
     const employee = await EmployeeEntity.find({
-      // relations: ['tasks'],
+      relations:['profile'],
     });
-    return employee;
+
+    const restEmployeeList = employee.map((emp, index) => {
+      return {
+        place: index + 1,
+        employee: emp,
+      };
+    });
+    return restEmployeeList;
   }
 
   async getOne(id: string): Promise<EmployeeEntity> {
-    return await  EmployeeEntity.findOne({ where: { id } });
+    return await EmployeeEntity.findOne({ where: { id } });
   }
 
   async getOneByEmail(email: string): Promise<EmployeeEntity> {
-    return await  EmployeeEntity.findOneBy({email} );
+    return await EmployeeEntity.findOneBy({ email });
   }
 
   async getAllForEmployee(id: string) {
@@ -42,8 +55,10 @@ export class EmployeeService {
     return 'hours';
   }
 
-  async createEmployee(userDetails: RegisterEmployeeRegDto): Promise<RegisterEmployeeRespon> {
-    const { email, name,password, lastname, hourly } = userDetails;
+  async createEmployee(
+    userDetails: RegisterEmployeeRegDto,
+  ): Promise<RegisterEmployeeRespon> {
+    const { email, name, password, lastname, hourly } = userDetails;
 
     const user = await EmployeeEntity.findOneBy({ email });
 
@@ -60,20 +75,17 @@ export class EmployeeService {
     });
     const { id } = await EmployeeEntity.save(newUser);
 
-    this.createEmployeeProfile(id,userDetails)
+    this.createEmployeeProfile(id, userDetails);
     return {
       id,
       name,
       lastname,
       hourly,
-  };
+    };
   }
 
   async updateEmployee(id: string, updateUserDetail: UpdateEmployeeDto) {
-    return await EmployeeEntity.update(
-      { id },
-      { ...updateUserDetail },
-    );
+    return await EmployeeEntity.update({ id }, { ...updateUserDetail });
   }
 
   async deleteEmployee(id: string) {
@@ -95,6 +107,4 @@ export class EmployeeService {
     user.profile = savedProfile;
     return EmployeeEntity.save(user);
   }
-
-
 }

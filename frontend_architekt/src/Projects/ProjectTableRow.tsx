@@ -1,7 +1,7 @@
-import {ProjectEntity} from "../types";
+import {ProjectItemEntity} from "types";
 
 interface Props {
-    project: ProjectEntity;
+    project: ProjectItemEntity;
     number: number;
     onProjectsChange: () => void;
 }
@@ -14,7 +14,7 @@ export const ProjectTableRow = (props: Props) => {
             return;
         }
 
-        const res = await fetch(`http://127.0.0.1:3001/api/project/${props.project.id}`, {
+        const res = await fetch(`http://127.0.0.1:3001/project/${props.project.id}`, {
             method: 'DELETE',
         });
 
@@ -38,10 +38,10 @@ export const ProjectTableRow = (props: Props) => {
                 {props.project.description}
             </td>
             <td>
-                {props.project.startDate}
+                {/*{props.project.startDate}*/}
             </td>
             <td>
-                {props.project.endDate}
+                {/*{props.project.endDate}*/}
             </td>
             <td>
                 {props.project.quantityHours}

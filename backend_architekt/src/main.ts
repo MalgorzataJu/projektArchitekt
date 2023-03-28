@@ -4,7 +4,7 @@ import { AppModule } from './app.module';
 import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {cors: true});
   // (app as NestExpressApplication).use(helmet);
 
   // app.useGlobalPipes(
@@ -16,7 +16,7 @@ async function bootstrap() {
   //   }),
   // );
   // app.useGlobalFilters(new GlobalExceptionFilter());
-  // app.enableCors();
+  app.enableCors({origin: 'localhost:3000'});
   app.use(cookieParser());
   await app.listen(3001);
 }

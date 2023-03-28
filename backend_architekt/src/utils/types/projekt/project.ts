@@ -14,13 +14,19 @@ export interface ProjectSimpleRes {
   quantityHours: number;
 }
 
-export interface ListProjectRes {
-  place: number;
-  project: ProjectSimpleRes;
+export interface CreateProject {
+  name: string;
+  description: string;
+  contact: string;
+  startDate: string;
+  endDate: string;
+  quantityHours: number;
 }
 
+export interface ListProjectRes {
+  place: number;
+  project: ProjectItemEntity;
+}
 
-
-export type ListProjectResAll = ProjectItemEntity[];
-
-
+export type ListProjectResAll = ListProjectRes[];
+export type ListProjectSimpleResAll = ProjectSimpleRes[];
