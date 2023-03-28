@@ -6,14 +6,15 @@ import {
   Inject,
   Param,
   Post,
-  Put,
-} from '@nestjs/common';
+  Put, ValidationPipe
+} from "@nestjs/common";
 import { EmployeeService } from './employee.service';
 import {
   CreateEmployeeProfileParams,
 } from '../utils/types';
 import { CreateEmployeeDto } from "./dto/createEmployee.dto";
 import { UpdateEmployeeDto } from "./dto/updateUser.dto";
+import { RegisterEmployeeRegDto } from "./dto/registerEmployeeReg.dto";
 
 @Controller('/employee')
 export class EmployeeController {
@@ -26,9 +27,27 @@ export class EmployeeController {
     return this.employeeService.findEmployee();
   }
 
+  @Get('/:employeeid')
+  getEmployeeById(
+    @Param('employeeid') id: string) {
+
+    return this.employeeService.getOne(id);
+  }
+
+  getEmployeeByEmail(
+    @Param('employeeid') id: string) {
+
+    return this.employeeService.getOne(id);
+  }
+
+  @Get('/stat/:employeeid')
+  getAllForEmployeeById(
+  @Param('employeeid') id: string) {
+    return this.employeeService.getAllForEmployee(id);
+  }
   @Post('/')
-  createEmployee(@Body() newUser: CreateEmployeeDto) {
-    this.employeeService.createEmployee(newUser);
+  createEmployee(@Body() newUserRegister: RegisterEmployeeRegDto) {
+    return this.employeeService.createEmployee(newUserRegister);
   }
 
   @Put('/:id')

@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { KindOfWorkEntity } from '../entities/Kind-of-work.entity';
 import { CreateKindofworkDto } from "./dto/createKindofwork.dto";
 import { KindOfWorkItemEntity } from "../utils/types";
-import { ProjectEntity } from "../entities/Project.entity";
 
 @Injectable()
 export class KindOfWorkService {

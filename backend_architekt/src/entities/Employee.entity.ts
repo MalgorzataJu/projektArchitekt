@@ -14,9 +14,10 @@ import {
 import { ProfileEntity } from './Profile.entity';
 import { HourEntity } from './Hour.entity';
 import { TaskEntity } from './Task.entity';
+import { CreateEmployeeDto } from "../employee/dto/createEmployee.dto";
 
 @Entity({ name: 'employees' })
-export class EmployeeEntity extends BaseEntity {
+export class EmployeeEntity extends BaseEntity implements CreateEmployeeDto{
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -34,8 +35,17 @@ export class EmployeeEntity extends BaseEntity {
   })
   createdAt: Date;
 
-  @Column({ nullable: true })
+  @Column({
+    default: "user",
+    nullable: true })
   authStrategy: string;
+
+  @Column({
+    nullable: true,
+    default: null,
+  })
+  currentTokenId: string | null;
+
 
   @OneToOne((type) => ProfileEntity)
   @JoinColumn()

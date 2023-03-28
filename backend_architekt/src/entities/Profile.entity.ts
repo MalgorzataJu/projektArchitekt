@@ -2,14 +2,14 @@ import {BaseEntity, Column, Entity, OneToOne, PrimaryGeneratedColumn} from "type
 
 @Entity({name: 'users_profile'})
 export class ProfileEntity extends BaseEntity {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
-    firstName: string;
+    name: string;
 
     @Column()
-    lastName: string;
+    lastname: string;
 
     @Column({
         nullable:true,

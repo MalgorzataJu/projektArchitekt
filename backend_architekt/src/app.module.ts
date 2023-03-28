@@ -7,6 +7,9 @@ import { ProjectModule } from './project/project.module';
 import { TaskModule } from './task/task.module';
 import { KindOfWorkModule } from './kind-of-work/kind-of-work.module';
 import { HourModule } from "./hour/hour.module";
+import { PassportModule } from "@nestjs/passport";
+import { AuthModule } from "./auth/auth.module";
+
 
 @Module({
   imports: [
@@ -16,8 +19,9 @@ import { HourModule } from "./hour/hour.module";
     KindOfWorkModule,
     TaskModule,
     HourModule,
+    AuthModule,
+    PassportModule,
   ],
-
   controllers: [AppController],
   providers: [AppService],
 })

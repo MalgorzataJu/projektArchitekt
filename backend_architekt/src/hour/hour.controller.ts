@@ -6,26 +6,43 @@ import {
   Inject,
   Param,
   Post,
-  Put,
-} from '@nestjs/common';
+  Put, UseGuards, UseInterceptors
+} from "@nestjs/common";
 import { HourService } from './hour.service';
 import { CreateHourDto } from './dto/createHour.dto';
 import { UpdateHourDto } from './dto/updateHour.dto';
 import { ListHourResAll } from '../utils/types';
+import { PassordProtectGuard } from "../guards/passord-protect-guard";
+import { UsePassword } from "../decorators/use-password.decorator";
+import { MyTimeoutInterceptor } from "../interceptors/my-timeout.interceptor";
+import { AuthGuard } from "@nestjs/passport";
 
 @Controller('/hour')
 export class HourController {
   constructor(@Inject(HourService) private hourService: HourService) {}
 
   @Get('/')
+  @UseGuards(AuthGuard('jwt'))
+  @UseInterceptors(MyTimeoutInterceptor)
   getHour(): Promise<ListHourResAll> {
     return this.hourService.listAll();
   }
 
-  // @Get('/stat/:employee')
-  // getEmployeeStat(){
-  //   return this.hourService.getAllForEmplooyee();
-  // }
+  @Get('/stat/:employeeId/:projectId')
+  @UseGuards(PassordProtectGuard)
+  @UsePassword('admin1')
+  getEmployeeStatByProject(
+    @Param('employeeId') employeeid: string,
+    @Param('projectId') projectid: string,
+  ){
+    return this.hourService.getAllStatHourByEmplooyeeandProject(employeeid, projectid);
+  }
+
+  @Get('/stat/:employeeId')
+  getEmployeeStat( @Param('employeeId') id: string){
+    return this.hourService.getAllStatHourByEmplooyee(id);
+  }
+
   @Get('/:employeeId')
   getHourByEmployeeId(
     @Param('employeeId') id: string,

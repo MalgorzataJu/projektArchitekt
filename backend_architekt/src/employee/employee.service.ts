@@ -4,17 +4,19 @@ import { EmployeeEntity } from '../entities/Employee.entity';
 import { ProfileEntity } from '../entities/Profile.entity';
 import { Repository } from 'typeorm';
 import {
-  CreateEmployeeProfileParams,
-  RegisterEmployeeRespon,
-} from '../utils/types';
-import { CreateEmployeeDto } from './dto/createEmployee.dto';
+  CreateEmployeeProfileParams, RegisterEmployeeRespon
+} from "../utils/types";
 import { UpdateEmployeeDto } from "./dto/updateUser.dto";
+import { RegisterEmployeeRegDto } from "./dto/registerEmployeeReg.dto";
+import { hashPwd } from "../utils/hash-pwd";
 
-@Injectable({ scope: Scope.REQUEST })
+
+@Injectable()
 export class EmployeeService {
   constructor(
     @InjectRepository(ProfileEntity)
     private profileRepository: Repository<ProfileEntity>,
+
   ) {}
   async findEmployee() {
     const employee = await EmployeeEntity.find({
@@ -23,27 +25,48 @@ export class EmployeeService {
     return employee;
   }
 
-  async getOneEmployee(id: string): Promise<EmployeeEntity> {
-    return EmployeeEntity.findOne({ where: { id } });
+  async getOne(id: string): Promise<EmployeeEntity> {
+    return await  EmployeeEntity.findOne({ where: { id } });
   }
 
-  async createEmployee(userDetails: CreateEmployeeDto): Promise<RegisterEmployeeRespon> {
-    const { email } = userDetails;
+  async getOneByEmail(email: string): Promise<EmployeeEntity> {
+    return await  EmployeeEntity.findOneBy({email} );
+  }
+
+  async getAllForEmployee(id: string) {
+    // const employee = await EmployeeEntity.findOne({ where: {
+    //   id,
+    //   // hours,
+    //   } });
+    // const hours = await this.hours.getOneEmployee(id)
+    return 'hours';
+  }
+
+  async createEmployee(userDetails: RegisterEmployeeRegDto): Promise<RegisterEmployeeRespon> {
+    const { email, name,password, lastname, hourly } = userDetails;
 
     const user = await EmployeeEntity.findOneBy({ email });
 
-    if (user) console.log("Email zajęty");
-    //   throw new HttpException(
-    //     'User not found. Cannot create Profile',
-    //     HttpStatus.BAD_REQUEST,
-    //   );
+    if (user)
+      throw new HttpException(
+        'That email existing in the base. Use another email.',
+        HttpStatus.BAD_REQUEST,
+      );
 
-    const newUser = EmployeeEntity.create({
+    const newUser = await EmployeeEntity.create({
       ...userDetails,
+      password: hashPwd(password),
       createdAt: new Date(),
     });
+    const { id } = await EmployeeEntity.save(newUser);
 
-    return EmployeeEntity.save(newUser);
+    this.createEmployeeProfile(id,userDetails)
+    return {
+      id,
+      name,
+      lastname,
+      hourly,
+  };
   }
 
   async updateEmployee(id: string, updateUserDetail: UpdateEmployeeDto) {
@@ -72,4 +95,6 @@ export class EmployeeService {
     user.profile = savedProfile;
     return EmployeeEntity.save(user);
   }
+
+
 }

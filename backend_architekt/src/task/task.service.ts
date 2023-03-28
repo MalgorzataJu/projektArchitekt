@@ -25,7 +25,7 @@ export class TaskService {
   }
 
   async getAllForEmployees(employeeId: string): Promise<ListHourResAll> {
-    const employee = await this.employeeService.getOneEmployee(employeeId);
+    const employee = await this.employeeService.getOne(employeeId);
     if (!employee) {
       throw new Error('Employeee not found!');
     }
@@ -41,7 +41,7 @@ export class TaskService {
   }
 
   async getAllForEmployeesAndProject(employeeId: string, projectId: string) {
-    const employee = await this.employeeService.getOneEmployee(employeeId);
+    const employee = await this.employeeService.getOne(employeeId);
     if (!employee) {
       throw new Error('Employeee not found!');
     }

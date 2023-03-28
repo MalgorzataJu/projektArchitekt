@@ -1,5 +1,5 @@
 export class CreateEmployeeProfileDto {
-  firstname: string;
+  name: string;
   lastname: string;
   hourly?: number;
 }
