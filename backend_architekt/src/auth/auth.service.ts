@@ -17,7 +17,7 @@ export class AuthService {
     const expiresIn = 60 * 60 * 24;
     const accessToken = sign(
       payload,
-      'JDwoi doi o#OOI F#3fOAoJF*#fooiN hf3OIC OJ o jf#OJCOjoJFo#CO#CoqCMoc#OCMOIDoij oCOMowCOcO#OI3J*#*#*#* FfjCNoo@w*&$08@*&@)*#)(C p9',
+      'fghDdfgdf DFG fghdfgdfgc hfghdfAoJF*#fooiN hf3OIC OJ o jf#OJCOjoJFo#CO#CoqCMoc#OCMOIDoij oCOMowCOcO#OI3J*#*#*#* FfjCNoo@w*&$08@*&@)*#)(C p9',
       { expiresIn },
     );
     return {
@@ -58,7 +58,7 @@ export class AuthService {
           domain: 'localhost',
           httpOnly: true,
         })
-        .json({ ok: true });
+        .json({ ok: true, email:user.email });
     } catch (e) {
       return res.json({ error: e.message });
     }

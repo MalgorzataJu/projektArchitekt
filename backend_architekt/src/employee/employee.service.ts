@@ -26,7 +26,7 @@ export class EmployeeService {
   ) {}
   async findEmployee() {
     const employee = await EmployeeEntity.find({
-      relations:['profile'],
+      relations: ['profile'],
     });
 
     const restEmployeeList = employee.map((emp, index) => {
@@ -57,14 +57,17 @@ export class EmployeeService {
 
   async createEmployee(
     userDetails: RegisterEmployeeRegDto,
-  ): Promise<RegisterEmployeeRespon> {
+  ): Promise<{ isOk: boolean; message: string }> {
     const { email, name, password, lastname, hourly } = userDetails;
 
     const user = await EmployeeEntity.findOneBy({ email });
 
     if (user)
       throw new HttpException(
-        'That email existing in the base. Use another email.',
+        {
+          isOk: false,
+          message: 'That email existing in the base. Use another email.',
+        },
         HttpStatus.BAD_REQUEST,
       );
 
@@ -77,10 +80,8 @@ export class EmployeeService {
 
     this.createEmployeeProfile(id, userDetails);
     return {
-      id,
-      name,
-      lastname,
-      hourly,
+      isOk: true,
+      message: 'Employee was added.',
     };
   }
 

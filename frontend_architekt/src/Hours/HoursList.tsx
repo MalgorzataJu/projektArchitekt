@@ -8,7 +8,7 @@ export const HoursList = () => {
 
     const refreshHours = async () => {
         setHours(null)
-        const res = await fetch(`http://127.0.0.1:3001/api/hour/list`);
+        const res = await fetch(`http://127.0.0.1:3001/hour`);
         const data = await res.json();
 
         setHours(data);

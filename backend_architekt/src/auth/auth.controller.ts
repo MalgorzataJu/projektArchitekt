@@ -15,7 +15,6 @@ export class AuthController {
     @Body() req: AuthLoginDto,
     @Res() res: Response,
   ): Promise<any> {
-    console.log("reg i res", req, res);
     return this.authService.login(req, res);
   }
 

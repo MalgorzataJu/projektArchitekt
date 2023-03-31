@@ -6,7 +6,7 @@ import {
   Inject,
   Param,
   Post,
-  Put, ValidationPipe
+  Put, UseGuards, UseInterceptors, ValidationPipe
 } from "@nestjs/common";
 import { EmployeeService } from './employee.service';
 import {
@@ -15,6 +15,8 @@ import {
 import { CreateEmployeeDto } from "./dto/createEmployee.dto";
 import { UpdateEmployeeDto } from "./dto/updateUser.dto";
 import { RegisterEmployeeRegDto } from "./dto/registerEmployeeReg.dto";
+import { AuthGuard } from "@nestjs/passport";
+import { MyTimeoutInterceptor } from "../interceptors/my-timeout.interceptor";
 
 @Controller('/employee')
 export class EmployeeController {
@@ -23,6 +25,8 @@ export class EmployeeController {
   ) {}
 
   @Get('/')
+  @UseGuards(AuthGuard('jwt'))
+  @UseInterceptors(MyTimeoutInterceptor)
   getEmployee(){
     return this.employeeService.findEmployee();
   }
@@ -45,7 +49,8 @@ export class EmployeeController {
   @Param('employeeid') id: string) {
     return this.employeeService.getAllForEmployee(id);
   }
-  @Post('/')
+
+  @Post('/register')
   createEmployee(@Body() newUserRegister: RegisterEmployeeRegDto) {
     return this.employeeService.createEmployee(newUserRegister);
   }

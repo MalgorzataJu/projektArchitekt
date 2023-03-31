@@ -24,6 +24,7 @@ function App() {
                 <Route path="/projects" element={<ProjectsView/>}/>
                 <Route path="/projects/add" element={<AddProject/>}/>
                 <Route path="/hours" element={<HoursView/>}/>
+                {/*<Route path="/hours/add" element={<HoursView/>}/>*/}
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/registration" element={<Registration/>}/>
             </Routes>

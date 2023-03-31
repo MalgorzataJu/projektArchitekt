@@ -16,8 +16,9 @@ async function bootstrap() {
   //   }),
   // );
   // app.useGlobalFilters(new GlobalExceptionFilter());
-  app.enableCors({origin: 'localhost:3000'});
+  app.enableCors();
+  // app.enableCors({origin: 'localhost:3000'});
   app.use(cookieParser());
-  await app.listen(3001);
+  await app.listen(process.env.PORT || 3001);
 }
 bootstrap();

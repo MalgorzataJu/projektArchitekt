@@ -1,28 +1,19 @@
 import React, {SyntheticEvent, useState} from 'react'
 import './Login.css';
-import {Btn} from "../common/Btn/Btn";
 
 
 export const Login = () => {
     const [loginPar, setLoginPer] = useState({
-        login:'',
+        email:'',
         password:'',
     });
 
     const [isLogin, setIsLogin] = useState({
         stan:false,
-        count:0,
         visibleDiv:false,
     });
 
     const changeForm = (key: string, value: any) => {
-
-        setIsLogin(isLogin => ({
-            ...isLogin,
-            stan:false,
-            visibleDiv: false,
-        }));
-
         setLoginPer(loginPar => ({
             ...loginPar,
             [key]:value,
@@ -32,15 +23,38 @@ export const Login = () => {
     const sendForm =async (e: SyntheticEvent) => {
         e.preventDefault();
 
-         const loginStan = [loginPar.login].includes('@')  && (loginPar.password.length > 0);
+        try {
+            const res = await fetch(`http://localhost:3001/auth/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(loginPar),
+            });
+            const data = await res.json();
 
-        setIsLogin({
-            stan:loginStan,
-            count:isLogin.count+1,
-            visibleDiv:true,
-        });
+            setIsLogin(isLogin => ({
+                ...isLogin,
+                stan:data.ok,
+                visibleDiv: true,
+            }));
+        } finally {
+            setIsLogin(isLogin => ({
+                ...isLogin,
+                stan:false,
+                visibleDiv: true,
+            }));
+        }
+
+        return` <Div>Witamy w domu</Div>`
+
     }
 
+    if (isLogin.stan) {
+        return <div>
+            <p><strong>Witamy w domu</strong></p>
+        </div>;
+    }
     return <form onSubmit={sendForm}>
         <h1>LOGOWANIE</h1>
         <div
@@ -57,9 +71,9 @@ export const Login = () => {
             Login:<br/>
             <input
                 type="text"
-                value={loginPar.login}
-                name='login'
-                onChange={e =>changeForm("login", e.target.value)}
+                value={loginPar.email}
+                name='email'
+                onChange={e =>changeForm("email", e.target.value)}
             />
         </label>
         <br/>
@@ -73,7 +87,7 @@ export const Login = () => {
             />
         </label>
         <br/>
-        {/*<button type={'submit'}>ZALOGUJ</button>*/}
-        <Btn text="Zaloguj" to='/login'/>
+        <button type={'submit'}>ZALOGUJ</button>
+        {/*<Btn text="Zaloguj" to='/login'/>*/}
     </form>
 }

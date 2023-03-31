@@ -5,40 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a22feb4e-a6d6-48df-8490-f2b9a7939b09" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/auth/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/auth/jwt.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/auth/jwt.strategy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/entities/Profile.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/entities/Profile.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend_architekt/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/project/project.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/project/project.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/utils/types/employee/employee.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/utils/types/employee/employee.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/utils/types/employee/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/utils/types/employee/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/utils/types/hour/hour.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/utils/types/hour/hour.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/utils/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/utils/types/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/utils/types/projekt/project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/utils/types/projekt/project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employees/AddEmployee/AddEmployee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/AddEmployee/AddEmployee.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employees/EmployeeTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/EmployeeTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employees/EmployeeTableRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/EmployeeTableRow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employees/EmployeesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/EmployeesList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hours/AddHours/AddHours.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hours/AddHours/AddHours.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Hours/HoursList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hours/HoursList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Projects/AddProject/AddProject.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/AddProject/AddProject.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Projects/ProjectTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/ProjectTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Projects/ProjectTableRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/ProjectTableRow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Projects/ProjectsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/ProjectsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/hour/hour.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/hour/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/kindOfWork/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/kindOfWork/kindeofwork.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/projekt/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/projekt/project.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/user/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/user/user.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.paths.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.paths.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Authentication/Authentication.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Authentication/Authentication.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Authentication/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Authentication/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Authentication/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Authentication/Registration.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,21 +35,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/mj/OneDrive/Pulpit/EMilia Współpraca/MEGAKA NA ZALICZENIE/frontend_architekt",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\mj\\OneDrive\\Pulpit\\EMilia Współpraca\\MEGAKA NA ZALICZENIE\\frontend_architekt\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mj/OneDrive/Pulpit/EMilia Współpraca/MEGAKA NA ZALICZENIE/frontend_architekt&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\mj\\OneDrive\\Pulpit\\EMilia Współpraca\\MEGAKA NA ZALICZENIE\\frontend_architekt\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -97,7 +75,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680007635247</updated>
-      <workItem from="1680007636656" duration="9676000" />
+      <workItem from="1680007636656" duration="9904000" />
+      <workItem from="1680074957212" duration="19119000" />
+      <workItem from="1680106331107" duration="22460000" />
+      <workItem from="1680253668635" duration="630000" />
     </task>
     <servers />
   </component>
