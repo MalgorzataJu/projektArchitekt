@@ -32,6 +32,5 @@ export interface ListProjectRes {
   project: ProjectSimpleRes;
 }
 
-export type ListProjectResAll = ListProjectRes[];
-export type ListProjectSimpleResAll = ProjectSimpleRes[];
+export type ListProjectSimpleResAll = ListProjectRes[];
 

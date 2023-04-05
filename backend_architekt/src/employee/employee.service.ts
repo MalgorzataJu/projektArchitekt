@@ -29,6 +29,7 @@ export class EmployeeService {
   ) {}
 
   async allEmployee(): Promise<ListEmployeeResAll[]>{
+
     const employee = await EmployeeEntity.find({
       relations: ['profile'],
     });

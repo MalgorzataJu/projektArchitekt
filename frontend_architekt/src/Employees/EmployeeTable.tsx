@@ -1,5 +1,6 @@
 import { ListEmployeeResAll } from "types";
 import {EmployeeTableRow} from "./EmployeeTableRow";
+import {Table} from "react-bootstrap";
 
 interface Props {
     list: ListEmployeeResAll[],
@@ -7,17 +8,16 @@ interface Props {
 }
 
 export const EmployeeTable =(props: Props) => {
-    console.log(props);
     return (
-            <table className="UsersList">
+            <Table striped bordered hover>
                 <thead>
-                <tr>
-                    <th>lp.</th>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>email</th>
-                    <th>Stawka godzinowa</th>
-                </tr>
+                    <tr>
+                        <th>lp.</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>email</th>
+                        <th>Stawka godzinowa</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {
@@ -31,6 +31,6 @@ export const EmployeeTable =(props: Props) => {
                     ))
                 }
                 </tbody>
-            </table>
+            </Table>
     )
 }

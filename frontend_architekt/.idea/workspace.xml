@@ -5,40 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a22feb4e-a6d6-48df-8490-f2b9a7939b09" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Hours/HoursTable.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Hours/HoursTableRow.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/entities/Employee.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/entities/Employee.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/entities/Project.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/entities/Project.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/hour/hour.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/hour/hour.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/hour/hour.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/hour/hour.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/project/project.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/project/project.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend_architekt/src/project/project.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/project/project.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/utils/types/employee/employee.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/utils/types/employee/employee.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/task/task.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/task/task.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/task/task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/task/task.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/utils/types/hour/hour.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/utils/types/hour/hour.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/utils/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/utils/types/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend_architekt/src/utils/types/projekt/project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/utils/types/projekt/project.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend_architekt/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employees/AddEmployee/AddEmployee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/AddEmployee/AddEmployee.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employees/EmployeeTableRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/EmployeeTableRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Employees/EmployeeTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/EmployeeTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Employees/EmployeeTableRow.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Employees/EmployeesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/EmployeesList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hours/AddHours/AddHours.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hours/AddHours/AddHours.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hours/HoursList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hours/HoursList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projects/ProjectTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/ProjectTable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Projects/ProjectTableRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/ProjectTableRow.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Projects/ProjectsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/ProjectsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Authentication/Authentication.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Authentication/Authentication.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Authentication/Login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Authentication/Login.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Authentication/Registration.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Header/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Menu/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Footer/Footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Header/Header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Header/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Layout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Menu/Menu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/components/Menu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/EmployeesView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/EmployeesView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/HomeView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/HomeView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/HoursView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/HoursView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/ProjectsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ProjectsView.tsx" afterDir="false" />
     </list>
@@ -64,7 +62,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/mj/OneDrive/Pulpit/MEGAKURS/REACT/ReactJS-v18-HTTPOnly-Cookie-Auth",
+    "last_opened_file_path": "C:/Users/mj/OneDrive/Pulpit/EMilia Współpraca/MEGAKA NA ZALICZENIE/frontend_architekt/src/Hours",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,19 +74,31 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\Hours" />
+      <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\components\Layout" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\src\Pages" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\components\Layout" />
+      <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\src\components" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\views" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\components" />
-      <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\src\components" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\components\Authentication" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -102,6 +112,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -120,7 +131,7 @@
       <workItem from="1680549053622" duration="33572000" />
       <workItem from="1680648721623" duration="258000" />
       <workItem from="1680675506595" duration="682000" />
-      <workItem from="1680676218785" duration="20142000" />
+      <workItem from="1680676218785" duration="33144000" />
     </task>
     <servers />
   </component>

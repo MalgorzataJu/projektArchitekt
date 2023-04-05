@@ -1,8 +1,16 @@
 import {ProjectsList} from "../Projects/ProjectsList";
+import {Card} from "react-bootstrap";
 
 export const ProjectsView = () => (
     <>
-        <h1>Lista Projektów w realizacji</h1>
-        <ProjectsList/>
+        <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ minHeight: "500px", minWidth: "600px" }}
+        >
+            <Card>
+                <Card.Header>Lista Projektów w realizacji</Card.Header>
+                <ProjectsList/>
+            </Card>
+        </div>
     </>
 )

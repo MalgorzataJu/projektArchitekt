@@ -11,7 +11,7 @@ import {
 import { HourService } from './hour.service';
 import { CreateHourDto } from './dto/createHour.dto';
 import { UpdateHourDto } from './dto/updateHour.dto';
-import { EmployeeEntity, ListHourResAll } from "../utils/types";
+import { EmployeeEntity, ListHourRes, ListHourResAll } from "../utils/types";
 import { PassordProtectGuard } from "../guards/passord-protect-guard";
 import { UsePassword } from "../decorators/use-password.decorator";
 import { MyTimeoutInterceptor } from "../interceptors/my-timeout.interceptor";
@@ -23,41 +23,41 @@ export class HourController {
   constructor(@Inject(HourService) private hourService: HourService) {}
 
   @Get('/')
-  // @UseGuards(AuthGuard('jwt'))
-  // @UseInterceptors(MyTimeoutInterceptor)
-  getHour(): Promise<ListHourResAll> {
+  @UseGuards(AuthGuard('jwt'))
+  @UseInterceptors(MyTimeoutInterceptor)
+  getHour(): Promise<ListHourRes[]> {
     return this.hourService.listAll();
   }
 
-  @Get('/stat/:employeeId/:projectId')
-  @UseGuards(PassordProtectGuard)
-  @UsePassword('admin1')
-  getEmployeeStatByProject(
-    @Param('employeeId') employeeid: string,
-    @Param('projectId') projectid: string,
-  ){
-    return this.hourService.getAllStatHourByEmplooyeeandProject(employeeid, projectid);
-  }
+  // @Get('/stat/:employeeId/:projectId')
+  // @UseGuards(PassordProtectGuard)
+  // @UsePassword('admin1')
+  // getEmployeeStatByProject(
+  //   @Param('employeeId') employeeid: string,
+  //   @Param('projectId') projectid: string,
+  // ){
+  //   return this.hourService.getAllStatHourByEmplooyeeandProject(employeeid, projectid);
+  // }
 
   @Get('/stat/:employeeId')
   getEmployeeStat( @Param('employeeId') id: string){
     return this.hourService.getAllStatHourByEmplooyee(id);
   }
 
-  @Get('/:employeeId')
-  getHourByEmployeeId(
-    @Param('employeeId') id: string,
-  ): Promise<ListHourResAll> {
-    return this.hourService.getAllForEmplooyee(id);
-  }
-
-  @Get('/:employeeId/:projectId')
-  getHourByProjectId(
-    @Param('employeeId') employeeId: string,
-    @Param('projectId') projectId: string,
-  ): Promise<ListHourResAll> {
-    return this.hourService.getAllForProject(employeeId, projectId);
-  }
+  // @Get('/:employeeId')
+  // getHourByEmployeeId(
+  //   @Param('employeeId') id: string,
+  // ): Promise<ListHourResAll> {
+  //   return this.hourService.getAllForEmplooyee(id);
+  // }
+  //
+  // @Get('/:employeeId/:projectId')
+  // getHourByProjectId(
+  //   @Param('employeeId') employeeId: string,
+  //   @Param('projectId') projectId: string,
+  // ): Promise<ListHourResAll> {
+  //   return this.hourService.getAllForProject(employeeId, projectId);
+  // }
 
   @Post('/')
   createHour(

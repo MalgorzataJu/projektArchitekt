@@ -1,31 +1,46 @@
 import {useEffect, useState} from "react";
-import {ListHourRes} from 'types';
 import {Spinner} from "../components/common/spiner/spinner";
-import {AddHours} from "./AddHours/AddHours";
+import jwtInterceptor from "../helpers/jwtInterceptor";
+import {AddEmployee} from "../Employees/AddEmployee/AddEmployee";
+import {HoursTable} from "./HoursTable";
+import { ListHourResAll } from "types";
 
 export const HoursList = () => {
-    const [hours, setHours] = useState<ListHourRes[] | null>([]);
+    const [hoursList, setHoursList] = useState<ListHourResAll[] | null>([]);
 
-    const refreshHours = async () => {
-        setHours(null)
-        const res = await fetch(`http://127.0.0.1:3001/hour`);
-        const data = await res.json();
+    const refreshHoursList = async () => {
 
-        setHours(data);
+    try {
+        setHoursList(null)
+        jwtInterceptor
+            .get("http://localhost:3001/hour",
+                {withCredentials: true}
+            )
+            .then((response) => {
+                setHoursList(response.data);
+            });
+
+        } finally {
+        setHoursList(null)
+        }
     };
 
     useEffect(() => {
-        refreshHours();
+        refreshHoursList();
     }, []);
 
 
-    if (hours === null) {
+if (hoursList === null) {
         return <Spinner/>;
     }
 
     return  <>
-        <h1>Będzie lista</h1>
-        <AddHours/>
+        <div>
+            <HoursTable hours={hoursList} onHoursChange={refreshHoursList}/>
+            {/*<AddEmployee onHoursChange={refreshHoursList}/>*/}
+        </div>
+        {/*<AddHours/>*/}
     </>
 
 }
+

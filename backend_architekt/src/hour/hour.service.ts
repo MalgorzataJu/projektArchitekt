@@ -2,7 +2,7 @@ import { Inject, Injectable, Scope } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { HourEntity } from '../entities/Hour.entity';
 import { Repository } from 'typeorm';
-import { EmployeeEntity, ListHourResAll } from "../utils/types";
+import { EmployeeEntity, ListHourRes, ListHourResAll } from "../utils/types";
 import { CreateHourDto } from './dto/createHour.dto';
 import { UpdateHourDto } from './dto/updateHour.dto';
 import { ProjectService } from '../project/project.service';
@@ -17,14 +17,27 @@ export class HourService {
     @Inject(KindOfWorkService) private kindOfWorkService: KindOfWorkService,
   ) {}
 
-  async listAll(): Promise<ListHourResAll> {
-    const hours = HourEntity.find({
-      relations: ['project', 'employee', 'kindofwork'],
+  async listAll(): Promise<ListHourResAll[]> {
+
+    const hours = await HourEntity.find({ relations: ['project', 'employee', 'kindofwork'] });
+
+    return hours.map((hour, index) => {
+      const h = {
+        id: hour.id,
+        projectId: hour.project.name,
+        employeeId: hour.employee.email,
+        kindofworkId: hour.kindofwork.hourstype,
+        quantity: hour.quantity,
+        date: new Date(hour.date).toLocaleDateString(),
+      };
+      return {
+        place: index + 1,
+        hour: h,
+      };
     });
-    return hours;
   }
 
-  async getAllForEmplooyee(enployeeId: string): Promise<ListHourResAll> {
+  async getAllForEmplooyee(enployeeId: string) {
     const employee = await this.employeeService.getOne(enployeeId);
     if (!employee) {
       throw new Error('Employeee not found!');
@@ -40,6 +53,7 @@ export class HourService {
     });
     return hours;
   }
+
   async getAllStatByProject(projectId: string) {
     const hours = await HourEntity.createQueryBuilder()
       .select('hours')
@@ -59,58 +73,58 @@ export class HourService {
         employeeid: employeeid,
       })
       .getMany();
-    const hourSum =  hours.reduce((prev, curr) => prev + curr.quantity, 0);
+    const hourSum = hours.reduce((prev, curr) => prev + curr.quantity, 0);
 
     return hours;
   }
 
-  // @TODO() do poprawy
-  async getAllStatHourByEmplooyeeandProject(
-    employeeid: string,
-    projectid: string,
-  ) {
-    const hours = await HourEntity.createQueryBuilder()
-      .select('hours')
-      .from(HourEntity, 'hours')
-      .where('hours.employee LIKE :employeeid', {
-        employeeid: employeeid,
-      })
-      // .where('hours.project LIKE :projectid', {
-      //   projectid: '44',
-      // })
-      // .leftJoin()
-      .getMany();
-    console.log(hours);
-    return hours;
-    // return 'hours';
-  }
-
-  async getAllForProject(
-    employeeId: string,
-    projectId: string,
-  ): Promise<ListHourResAll> {
-    const employee = await this.employeeService.getOne(employeeId);
-    if (!employee) {
-      throw new Error('Employeee not found!');
-    }
-    const project = await this.projectService.getOneProject(projectId);
-    if (!project) {
-      throw new Error('Project not found!');
-    }
-
-    const hours = HourEntity.find({
-      where: {
-        employee: {
-          id: employee.id,
-        },
-        project: {
-          id: project.id,
-        },
-      },
-      relations: ['project', 'employee', 'kindofwork'],
-    });
-    return hours;
-  }
+  // // @TODO() do poprawy
+  // async getAllStatHourByEmplooyeeandProject(
+  //   employeeid: string,
+  //   projectid: string,
+  // ) {
+  //   const hours = await HourEntity.createQueryBuilder()
+  //     .select('hours')
+  //     .from(HourEntity, 'hours')
+  //     .where('hours.employee LIKE :employeeid', {
+  //       employeeid: employeeid,
+  //     })
+  //     // .where('hours.project LIKE :projectid', {
+  //     //   projectid: '44',
+  //     // })
+  //     // .leftJoin()
+  //     .getMany();
+  //   console.log(hours);
+  //   return hours;
+  //   // return 'hours';
+  // }
+  //
+  // async getAllForProject(
+  //   employeeId: string,
+  //   projectId: string,
+  // ) {
+  //   const employee = await this.employeeService.getOne(employeeId);
+  //   if (!employee) {
+  //     throw new Error('Employeee not found!');
+  //   }
+  //   const project = await this.projectService.getOneProject(projectId);
+  //   if (!project) {
+  //     throw new Error('Project not found!');
+  //   }
+  //
+  //   const hours = HourEntity.find({
+  //     where: {
+  //       employee: {
+  //         id: employee.id,
+  //       },
+  //       project: {
+  //         id: project.id,
+  //       },
+  //     },
+  //     relations: ['project', 'employee', 'kindofwork'],
+  //   });
+  //   return hours;
+  // }
 
   async createHour(hour: CreateHourDto, employee: EmployeeEntity) {
     const { projectId, employeeId, quantity, kindofworkId } = hour;

@@ -20,9 +20,23 @@ export interface HourItemEntity {
     quantity: number;
 }
 
+export interface HoursItemRes {
+    id?: string
+    projectId: string;
+    employeeId: string;
+    kindofworkId: string;
+    quantity: number;
+    date: string;
+}
+
 export interface ListHourRes {
     place: number;
     hour: HourItemEntity;
+}
+
+export interface ListHourResAll {
+    place: number;
+    hour: HoursItemRes;
 }
 
 export interface ListAllToAddHoursRes{

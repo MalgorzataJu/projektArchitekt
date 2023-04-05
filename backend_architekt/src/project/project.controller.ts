@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Inject, Param, Post, Put } from "@nestjs/common";
 import { ProjectService } from './project.service';
-import { ListProjectResAll } from '../utils/types';
+import { ListProjectSimpleResAll } from "../utils/types";
 import { CreateProjectDto } from "./dto/createProject.dto";
 import { UpdateProjectDto } from "./dto/updateProject.dto";
 
@@ -9,7 +9,7 @@ export class ProjectController {
   constructor(@Inject(ProjectService) private projectService: ProjectService) {}
 
   @Get('/')
-  getProject(): Promise<ListProjectResAll> {
+  getProject(): Promise<ListProjectSimpleResAll> {
     return this.projectService.listAll();
   }
 

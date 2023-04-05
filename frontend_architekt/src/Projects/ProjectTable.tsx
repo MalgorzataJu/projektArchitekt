@@ -1,16 +1,16 @@
-import {ListProjectResAll} from "types";
-import {ProjectTableRow} from "./ProjectTableRow";
+import { ListProjectSimpleResAll } from "types";
+import { ProjectTableRow } from "./ProjectTableRow";
+import {Table} from "react-bootstrap";
 
 interface Props {
-    projects: ListProjectResAll;
+    projects: ListProjectSimpleResAll;
     onProjectsChange: () => void;
 }
 
 export const ProjectTable = (props: Props) => {
 
-
     return (
-        <table>
+        <Table striped bordered hover>
             <thead>
             <tr>
                 <th>lp.</th>
@@ -36,6 +36,6 @@ export const ProjectTable = (props: Props) => {
                 ))
             }
             </tbody>
-        </table>
+        </Table>
     )
 }

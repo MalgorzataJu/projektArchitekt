@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { TaskEntity } from '../entities/Task.entity';
-import { ListHourResAll, ListTaskResAll } from "../utils/types";
+import { ListHourRes, ListTaskResAll } from "../utils/types";
 import { CreateTaskDto } from './dto/createTask.dto';
 import { UpdateTaskDto } from './dto/updateTask.dto';
 import { EmployeeService } from "../employee/employee.service";
@@ -24,7 +24,7 @@ export class TaskService {
     return TaskEntity.findOne({ where: { id } });
   }
 
-  async getAllForEmployees(employeeId: string): Promise<ListHourResAll> {
+  async getAllForEmployees(employeeId: string){
     const employee = await this.employeeService.getOne(employeeId);
     if (!employee) {
       throw new Error('Employeee not found!');

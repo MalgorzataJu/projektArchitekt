@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { ProjectEntity } from '../entities/Project.entity';
-import { ListProjectRes, ListProjectResAll } from "../utils/types";
+import { ListProjectSimpleResAll } from "../utils/types";
 import { CreateProjectDto } from "./dto/createProject.dto";
 import { UpdateProjectDto } from "./dto/updateProject.dto";
 
 @Injectable()
 export class ProjectService {
 
-  async listAll(): Promise<ListProjectRes[]>{
+  async listAll(): Promise<ListProjectSimpleResAll>{
 
     const projects = await ProjectEntity.find();
     return projects.map((p, index) => {

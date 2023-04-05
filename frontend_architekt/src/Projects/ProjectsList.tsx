@@ -1,11 +1,11 @@
 import {useEffect, useState} from "react";
-import { ListProjectRes } from "types";
+import { ListProjectSimpleResAll } from "types";
 import {Spinner} from "../components/common/spiner/spinner";
 import {ProjectTable} from "./ProjectTable";
 
 
 export const ProjectsList = () => {
-    const [projects, setProjects] = useState<ListProjectRes[] | null>([]);
+    const [projects, setProjects] = useState<ListProjectSimpleResAll | null>([]);
 
     const refreshProject = async () => {
         setProjects(null)

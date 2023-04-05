@@ -38,7 +38,6 @@ export const EmployeesList = () => {
 
     return (
         <div>
-            {}
             <EmployeeTable list={list} onEmployeeChange={refreshEmployee}/>
             <AddEmployee onEmployeeChange={refreshEmployee}/>
         </div>
