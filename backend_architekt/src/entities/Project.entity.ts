@@ -14,6 +14,7 @@ import {
 import { HourEntity } from './Hour.entity';
 import { TaskEntity } from './Task.entity';
 import { ProjectItemEntity } from '../utils/types';
+import { IsDate } from "class-validator";
 
 @Entity({ name: 'projects' })
 export class ProjectEntity extends BaseEntity implements ProjectItemEntity {
@@ -30,9 +31,11 @@ export class ProjectEntity extends BaseEntity implements ProjectItemEntity {
   contact: string;
 
   @Column({ type: 'timestamp' })
+  @IsDate()
   startDate: Date;
 
   @Column({ type: 'timestamp' })
+  @IsDate()
   endDate: Date;
 
   @Column({ default: 30 })

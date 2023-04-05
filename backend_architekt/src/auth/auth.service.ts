@@ -48,7 +48,7 @@ export class AuthService {
       });
 
       if (!employee) {
-        return res.json({ error: 'Invalid login data!' });
+        return res.json({  isOk:false, error: 'Invalid login data!' });
       }
 
       const token = await this.createToken(await this.generateToken(employee));
@@ -61,13 +61,13 @@ export class AuthService {
           httpOnly: true,
         })
         .json({
+          isOk:true,
           email: employee.email,
           role: employee.authStrategy,
-          token: token,
         });
 
     } catch (e) {
-      return res.json({ error: e.message });
+      return res.json({  isOk:false, error: e.message });
     }
   }
 
@@ -85,9 +85,5 @@ export class AuthService {
     } catch (e) {
       return res.json({ error: e.message });
     }
-  }
-
-  async refresh(employee: EmployeeEntity, res: Response) {
-    return await this.createToken(await this.generateToken(employee));
   }
 }

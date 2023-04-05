@@ -18,24 +18,12 @@ export class AuthController {
     return this.authService.login(req, res);
   }
 
-  @Post('/test')
-  @UseGuards(AuthGuard('jwt'))
-  async employeeRefreshToken(
-    @UserObj() employee:EmployeeEntity,
-    @Res() res: Response
-  ): Promise<any> {
-    console.log("user", employee);
-    console.log("res", res);
-    return this.authService.refresh(employee,res);
-  }
-
   @Get('/logout')
   @UseGuards(AuthGuard('jwt'))
   async employeeLogout(
     @UserObj() employee:EmployeeEntity,
     @Res() res: Response){
     console.log("employee", employee);
-    // console.log("res", res);
-      return this.authService.logout(employee, res);
+    return this.authService.logout(employee, res);
   }
 }

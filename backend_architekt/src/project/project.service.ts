@@ -7,16 +7,29 @@ import { UpdateProjectDto } from "./dto/updateProject.dto";
 @Injectable()
 export class ProjectService {
 
-  async listAll(): Promise<ListProjectResAll> {
+  async listAll(): Promise<ListProjectRes[]>{
+
     const projects = await ProjectEntity.find();
-    const restProject = projects.map((p, index) => {
+    return projects.map((p, index) => {
+
+      const project = {
+        id: p.id,
+        name: p.name,
+        contact: p.contact,
+        description: p.description,
+        startDate: new Date(p.startDate).toLocaleDateString(),
+        endDate:  new Date(p.endDate).toLocaleDateString(),
+        quantityHours: Number(p.quantityHours),
+      };
       return {
         place: index + 1,
-        project: p,
+        project: project,
       };
     });
-    return restProject;
   }
+
+
+
 
   async getOneProject(id: string): Promise<ProjectEntity> {
     return ProjectEntity.findOne({ where: { id } });

@@ -1,6 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as cookieParser from 'cookie-parser';
+import { ValidationPipe } from "@nestjs/common";
+import { DateFormat, DateFormatInterceptor } from "nestjs-date-format-interceptor";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,7 +17,13 @@ async function bootstrap() {
   //   }),
   // );
   // app.useGlobalFilters(new GlobalExceptionFilter());
-
+  // app.useGlobalInterceptors(
+  //   new DateFormatInterceptor({
+  //     maxDeep: 6,
+  //     format: DateFormat.toISOString,
+  //     fnFormat: date => `${date.toLocaleString('es-CR')}`,
+  //   }),
+  // );
 
   // app.enableCors(corsOptions);
   app.enableCors({

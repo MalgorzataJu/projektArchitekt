@@ -36,13 +36,14 @@ export interface EmployeeEntity extends EmployeeRes {
   profile: ProfileEntityRes;
 }
 
-export type RegisterEmployeeRespon = {
+export type ListEmployeeRespon = {
   id: string;
+  email:string;
   name: string;
   lastname: string;
   hourly: number;
 };
-///
+
 
 export type CreateEmployeeParams = {
   password: string;
@@ -69,5 +70,5 @@ export interface ListEmployeeRes {
 
 export interface ListEmployeeResAll {
   place: number;
-  employee: EmployeeEntity;
+  employee: ListEmployeeRespon;
 }

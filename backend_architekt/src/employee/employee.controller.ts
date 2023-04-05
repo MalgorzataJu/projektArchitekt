@@ -20,38 +20,28 @@ import { MyTimeoutInterceptor } from "../interceptors/my-timeout.interceptor";
 import { UserObj } from "../decorators/user-obj.decorator";
 
 @Controller('/employee')
+// @UseGuards(AuthGuard('jwt'))
 export class EmployeeController {
   constructor(
     @Inject(EmployeeService) private employeeService: EmployeeService,
   ) {}
 
-  // @Get('/')
-  // // @UseGuards(AuthGuard('jwt'))
-  // // @UseInterceptors(MyTimeoutInterceptor)
-  // getEmployee(){
-  //   return this.employeeService.findEmployee();
-  // }
-
   @Get('/')
-  @UseGuards(AuthGuard('jwt'))
-  // @UseInterceptors(MyTimeoutInterceptor)
-  getEmployeeById(
-
-    @UserObj() employee: EmployeeEntity
-  ){
-    console.log("Użytkownik",employee);
-    //return this.employeeService.getOneEmployee(employee.id);
+  // @UseGuards(AuthGuard('jwt'))
+  @UseInterceptors(MyTimeoutInterceptor)
+  getEmployee(){
+    return this.employeeService.allEmployee();
   }
 
-  // @Get('/:employeeid')
+
+  @Get('/:employeeid')
   // @UseGuards(AuthGuard('jwt'))
-  // @UseInterceptors(MyTimeoutInterceptor)
-  // getEmployeeById(
-  //   @Param('employeeid') id: string,
-  // {
-  //
-  //   return this.employeeService.getOne(id);
-  // }
+  @UseInterceptors(MyTimeoutInterceptor)
+  getEmployeeById(
+    @Param('employeeid') id: string
+  ){
+    return this.employeeService.getOne(id);
+  }
 
   getEmployeeByEmail(
     @Param('employeeid') id: string) {
@@ -79,7 +69,7 @@ export class EmployeeController {
   }
   @Delete('/:id')
   deleteEmployeeById(@Param('id') id: string) {
-    this.employeeService.deleteEmployee(id);
+   return this.employeeService.deleteEmployee(id);
   }
 
   @Post(':id/profiles')

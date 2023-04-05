@@ -10,8 +10,7 @@ import { EmployeeEntity } from '../entities/Employee.entity';
 import { ProfileEntity } from '../entities/Profile.entity';
 import { Repository } from 'typeorm';
 import {
-  CreateEmployeeProfileParams, CreateEmployeeRes,
-  EmployeeRes
+  CreateEmployeeProfileParams, CreateEmployeeRes, ListEmployeeResAll
 } from "../utils/types";
 import { UpdateEmployeeDto } from './dto/updateUser.dto';
 import { RegisterEmployeeRegDto } from './dto/registerEmployeeReg.dto';
@@ -28,28 +27,30 @@ export class EmployeeService {
     @InjectRepository(ProfileEntity)
     private profileRepository: Repository<ProfileEntity>,
   ) {}
-  async findEmployee() {
+
+  async allEmployee(): Promise<ListEmployeeResAll[]>{
     const employee = await EmployeeEntity.find({
       relations: ['profile'],
     });
 
-    const restEmployeeList = employee.map((emp, index) => {
+    return employee.map((emp, index) => {
+      const employee = {
+        id: emp.id,
+        email: emp.email,
+        name: emp.profile.name,
+        lastname: emp.profile.lastname,
+        hourly: emp.profile.hourly,
+      };
       return {
         place: index + 1,
-        employee: emp,
+        employee: employee,
       };
     });
-    return restEmployeeList;
   }
 
   async getOne(id: string) {
     console.log('przekazane ID', id);
     return await EmployeeEntity.findOne({ where: { id } });
-    // const employee = await EmployeeEntity.findOne({ where: {
-    //   id,
-    //   // hours,
-    //   } });
-    // const hours = await this.hours.getOneEmployee(id)
   }
 
   async getOneByEmail(email: string): Promise<EmployeeEntity> {

@@ -1,3 +1,5 @@
+import { ListEmployeeRespon } from "../employee";
+
 export interface ProjectItemEntity {
   id: string;
   name: string;
@@ -8,6 +10,8 @@ export interface ProjectItemEntity {
 
 export interface ProjectSimpleRes {
   id?: string;
+  description: string;
+  contact: string;
   name: string;
   startDate: string;
   endDate: string;
@@ -25,8 +29,9 @@ export interface CreateProject {
 
 export interface ListProjectRes {
   place: number;
-  project: ProjectItemEntity;
+  project: ProjectSimpleRes;
 }
 
 export type ListProjectResAll = ListProjectRes[];
 export type ListProjectSimpleResAll = ProjectSimpleRes[];
+

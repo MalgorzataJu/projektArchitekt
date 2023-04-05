@@ -37,7 +37,8 @@ export class EmployeeEntity extends BaseEntity implements CreateEmployeeDto{
 
   @Column({
     default: "user",
-    nullable: true })
+    nullable: true
+  })
   authStrategy: string;
 
   @Column({
