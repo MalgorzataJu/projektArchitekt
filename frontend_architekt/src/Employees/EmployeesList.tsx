@@ -3,17 +3,28 @@ import {ListEmployeeResAll} from 'types';
 import {Spinner} from "../components/common/spiner/spinner";
 import {EmployeeTable} from "./EmployeeTable";
 import {AddEmployee} from "./AddEmployee/AddEmployee";
+import jwtInterceptor from "../helpers/jwtInterceptor";
 
 
 export const EmployeesList = () => {
     const [list, setList] = useState<ListEmployeeResAll[] | null>([]);
 
     const refreshEmployee = async () => {
-        setList(null)
-        const res = await fetch(`http://127.0.0.1:3001/employee`);
-        const data = await res.json();
-        console.log(data);
-        setList(data);
+
+        try {
+            setList(null)
+            jwtInterceptor
+                .get("http://localhost:3001/employee",
+                    {withCredentials: true}
+                )
+                .then((response) => {
+                    setList(response.data);
+                    console.log("w employeelist", list)
+                });
+
+        } finally {
+            setList(null)
+        }
     };
 
     useEffect(() => {
@@ -27,8 +38,9 @@ export const EmployeesList = () => {
 
     return (
         <div>
+            {}
             <EmployeeTable list={list} onEmployeeChange={refreshEmployee}/>
-            {/*<AddEmployee onEmployeeChange={refreshEmployee}/>*/}
+            <AddEmployee onEmployeeChange={refreshEmployee}/>
         </div>
     )
 }

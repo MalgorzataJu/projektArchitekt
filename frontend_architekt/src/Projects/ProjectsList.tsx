@@ -1,16 +1,15 @@
 import {useEffect, useState} from "react";
-import {ListProjectResAll} from 'types';
+import { ListProjectRes } from "types";
 import {Spinner} from "../components/common/spiner/spinner";
 import {ProjectTable} from "./ProjectTable";
 
 
 export const ProjectsList = () => {
-    // const [projects, setProjects] = useState<ListProjectRes[] | null>([]);
-    const [projects, setProjects] = useState<ListProjectResAll | null>([]);
+    const [projects, setProjects] = useState<ListProjectRes[] | null>([]);
 
     const refreshProject = async () => {
         setProjects(null)
-        const res = await fetch(`http://127.0.0.1:3001/api/project/list`);
+        const res = await fetch(`http://127.0.0.1:3001/project`);
         const data = await res.json();
 
         setProjects(data);

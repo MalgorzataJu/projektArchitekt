@@ -1,11 +1,21 @@
-import {Login} from "../components/Authentication/Login";
+import {Card} from "react-bootstrap";
 
 export const HomeView = () => (
-    <div className="home">
-        <h1>Witamna stronie platformy Architekt.</h1>
+    <>
+        <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ minHeight: "500px", minWidth: "600px" }}
+        >
+                <Card>
+                    <Card.Body>
+                        <Card.Text>
+                            <h1>Witamna stronie platformy Architekt.</h1>
 
-        <Login/>
-        <p>Platforma służy do rejestracji czasu pracy praconików.</p>
-        <p>Pozwala zarządzać projektwami.</p>
-    </div>
+                            <p>Platforma służy do rejestracji czasu pracy praconików.</p>
+                            <p>Pozwala zarządzać projektwami.</p>
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+        </div>
+        </>
 )

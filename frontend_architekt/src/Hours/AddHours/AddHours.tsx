@@ -99,7 +99,7 @@ export const AddHours = (props: Props) => {
                     {
                         data.employeeList.map(employee => (
                             <option key={employee.id} value={employee.id}>
-                                {employee.name} {employee.lastname}
+                                {/*{employee.name} {employee.lastname}*/}
                             </option>
                         ))
                     }

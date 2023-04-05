@@ -1,10 +1,11 @@
 import React from "react";
-import { EmployeeEntity } from "types";
+import { ListEmployeeRespon } from "types";
+import axios from "axios";
 
 interface Props {
     key: string | undefined,
     place:number,
-    employee:EmployeeEntity,
+    employee:ListEmployeeRespon,
     onEmployeeChange: () => void;
 }
 
@@ -16,35 +17,33 @@ export const EmployeeTableRow = (props : Props) => {
         if (!window.confirm(`Are you sure you want to remove ${props.employee.name}?`)) {
             return;
         }
-
-        const res = await fetch(`http://127.0.0.1:3001/employee/${props.employee.id}`, {
-            method: 'DELETE',
-        });
-
-        if ([400, 500].includes(res.status)) {
-            const error = await res.json();
-            alert(`Error occurred: ${error.message}`);
-            return;
-        }
-
+        axios
+            .delete(`http://localhost:3001/employee/${props.employee.id}`,
+        {withCredentials: true}
+            )
+            .then((res) => {
+                if ([400, 500].includes(res.status)) {
+                    const error = res.statusText;
+                    alert(`Error occurred: ${error}`);
+                    return;
+                }
+            });
         props.onEmployeeChange();
     };
     return(
         <tr  className="UserListOneItem">
             <th>{props.place}</th>
             <td>
-                {props.employee.profile.name}
-                {/*<Link to={`/gift/${props.gift.id}`}>*/}
-                {/*</Link>*/}
+                {props.employee.name}
             </td>
             <td>
-                {props.employee.profile.lastname}
+                {props.employee.lastname}
             </td>
             <td>
-                {props.employee.email}
+                {/*{props.employee.email}*/}
             </td>
             <td>
-                {props.employee.profile.hourly}
+                {props.employee.hourly}
             </td>
             <td>
                 <a href="#" onClick={deleteEmployee}>🗑️</a>

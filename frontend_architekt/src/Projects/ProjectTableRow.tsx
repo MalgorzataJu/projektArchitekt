@@ -1,7 +1,7 @@
-import {ProjectItemEntity} from "types";
+import { ProjectSimpleRes} from "types";
 
 interface Props {
-    project: ProjectItemEntity;
+    project: ProjectSimpleRes;
     number: number;
     onProjectsChange: () => void;
 }
@@ -38,10 +38,10 @@ export const ProjectTableRow = (props: Props) => {
                 {props.project.description}
             </td>
             <td>
-                {/*{props.project.startDate}*/}
+                {props.project.startDate}
             </td>
             <td>
-                {/*{props.project.endDate}*/}
+                {props.project.endDate}
             </td>
             <td>
                 {props.project.quantityHours}
