@@ -2,7 +2,7 @@ import { Inject, Injectable, Scope } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { HourEntity } from '../entities/Hour.entity';
 import { Repository } from 'typeorm';
-import { ListHourResAll } from '../utils/types';
+import { EmployeeEntity, ListHourResAll } from "../utils/types";
 import { CreateHourDto } from './dto/createHour.dto';
 import { UpdateHourDto } from './dto/updateHour.dto';
 import { ProjectService } from '../project/project.service';
@@ -112,10 +112,10 @@ export class HourService {
     return hours;
   }
 
-  async createHour(hour: CreateHourDto) {
+  async createHour(hour: CreateHourDto, employee: EmployeeEntity) {
     const { projectId, employeeId, quantity, kindofworkId } = hour;
     const project = await this.projectService.getOneProject(projectId);
-    const employee = await this.employeeService.getOne(employeeId);
+    // const employee = await this.employeeService.getOne(employeeId);
     const kindOfWork = await this.kindOfWorkService.getOneKindOfWork(
       kindofworkId,
     );

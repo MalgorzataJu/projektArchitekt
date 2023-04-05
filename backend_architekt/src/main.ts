@@ -1,10 +1,9 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-
 import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {cors: true});
+  const app = await NestFactory.create(AppModule);
   // (app as NestExpressApplication).use(helmet);
 
   // app.useGlobalPipes(
@@ -16,9 +15,16 @@ async function bootstrap() {
   //   }),
   // );
   // app.useGlobalFilters(new GlobalExceptionFilter());
-  app.enableCors();
-  // app.enableCors({origin: 'localhost:3000'});
+
+
+  // app.enableCors(corsOptions);
+  app.enableCors({
+    origin:"http://localhost:3000",
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type, Accept',
+    credentials:true
+  });
   app.use(cookieParser());
-  await app.listen(process.env.PORT || 3001);
+  await app.listen( 3001);
 }
 bootstrap();

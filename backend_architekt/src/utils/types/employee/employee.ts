@@ -12,10 +12,15 @@ export type RegisterEmployeeRes = {
   hourly: number;
 }
 
+export type CreateEmployeeRes = {
+  id: string;
+  email:string;
+}
+
 export interface EmployeeRes {
   id?: string;
   name: string;
-  lastname: string;
+  email: string;
 }
 export type ProfileEntityRes = {
   id?: string;

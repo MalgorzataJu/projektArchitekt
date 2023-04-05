@@ -10,13 +10,14 @@ import {
 } from "@nestjs/common";
 import { EmployeeService } from './employee.service';
 import {
-  CreateEmployeeProfileParams,
-} from '../utils/types';
+  CreateEmployeeProfileParams, EmployeeEntity
+} from "../utils/types";
 import { CreateEmployeeDto } from "./dto/createEmployee.dto";
 import { UpdateEmployeeDto } from "./dto/updateUser.dto";
 import { RegisterEmployeeRegDto } from "./dto/registerEmployeeReg.dto";
 import { AuthGuard } from "@nestjs/passport";
 import { MyTimeoutInterceptor } from "../interceptors/my-timeout.interceptor";
+import { UserObj } from "../decorators/user-obj.decorator";
 
 @Controller('/employee')
 export class EmployeeController {
@@ -24,19 +25,33 @@ export class EmployeeController {
     @Inject(EmployeeService) private employeeService: EmployeeService,
   ) {}
 
+  // @Get('/')
+  // // @UseGuards(AuthGuard('jwt'))
+  // // @UseInterceptors(MyTimeoutInterceptor)
+  // getEmployee(){
+  //   return this.employeeService.findEmployee();
+  // }
+
   @Get('/')
   @UseGuards(AuthGuard('jwt'))
-  @UseInterceptors(MyTimeoutInterceptor)
-  getEmployee(){
-    return this.employeeService.findEmployee();
-  }
-
-  @Get('/:employeeid')
+  // @UseInterceptors(MyTimeoutInterceptor)
   getEmployeeById(
-    @Param('employeeid') id: string) {
 
-    return this.employeeService.getOne(id);
+    @UserObj() employee: EmployeeEntity
+  ){
+    console.log("Użytkownik",employee);
+    //return this.employeeService.getOneEmployee(employee.id);
   }
+
+  // @Get('/:employeeid')
+  // @UseGuards(AuthGuard('jwt'))
+  // @UseInterceptors(MyTimeoutInterceptor)
+  // getEmployeeById(
+  //   @Param('employeeid') id: string,
+  // {
+  //
+  //   return this.employeeService.getOne(id);
+  // }
 
   getEmployeeByEmail(
     @Param('employeeid') id: string) {
@@ -47,7 +62,7 @@ export class EmployeeController {
   @Get('/stat/:employeeid')
   getAllForEmployeeById(
   @Param('employeeid') id: string) {
-    return this.employeeService.getAllForEmployee(id);
+    // return this.employeeService.getAllForEmployee(id);
   }
 
   @Post('/register')

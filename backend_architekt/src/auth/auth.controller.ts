@@ -2,25 +2,40 @@ import { Body, Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { Response } from 'express';
 import { AuthLoginDto } from './dto/auth-login.dto';
-import { AuthGuard } from "@nestjs/passport";
 import { UserObj } from "../decorators/user-obj.decorator";
 import { EmployeeEntity } from "../entities/Employee.entity";
+import { AuthGuard } from "@nestjs/passport";
 
-@Controller('auth')
+@Controller('/auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('/login')
-  async phoneRegister(
+  async employeeRegister(
     @Body() req: AuthLoginDto,
     @Res() res: Response,
   ): Promise<any> {
     return this.authService.login(req, res);
   }
 
+  @Post('/test')
+  @UseGuards(AuthGuard('jwt'))
+  async employeeRefreshToken(
+    @UserObj() employee:EmployeeEntity,
+    @Res() res: Response
+  ): Promise<any> {
+    console.log("user", employee);
+    console.log("res", res);
+    return this.authService.refresh(employee,res);
+  }
+
   @Get('/logout')
   @UseGuards(AuthGuard('jwt'))
-  async logout(@UserObj() user:EmployeeEntity, @Res() res: Response) {
-      return this.authService.logout(user, res);
+  async employeeLogout(
+    @UserObj() employee:EmployeeEntity,
+    @Res() res: Response){
+    console.log("employee", employee);
+    // console.log("res", res);
+      return this.authService.logout(employee, res);
   }
 }

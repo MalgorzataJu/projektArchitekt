@@ -13,7 +13,9 @@ function cookieExtractor(req: any): null | string {
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
+
   constructor() {
+
     super({
       jwtFromRequest: cookieExtractor,
       secretOrKey:
@@ -22,11 +24,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: JwtPayload, done: (error, user) => void) {
+
     if (!payload || !payload.id) {
       return done(new UnauthorizedException(), false);
     }
 
-    const user = await EmployeeEntity.findBy({ currentTokenId: payload.id });
+    const user = await EmployeeEntity.findOneBy({ currentTokenId: payload.id });
     if (!user) {
       return done(new UnauthorizedException(), false);
     }

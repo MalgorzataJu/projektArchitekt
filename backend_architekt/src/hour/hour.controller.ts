@@ -11,19 +11,20 @@ import {
 import { HourService } from './hour.service';
 import { CreateHourDto } from './dto/createHour.dto';
 import { UpdateHourDto } from './dto/updateHour.dto';
-import { ListHourResAll } from '../utils/types';
+import { EmployeeEntity, ListHourResAll } from "../utils/types";
 import { PassordProtectGuard } from "../guards/passord-protect-guard";
 import { UsePassword } from "../decorators/use-password.decorator";
 import { MyTimeoutInterceptor } from "../interceptors/my-timeout.interceptor";
 import { AuthGuard } from "@nestjs/passport";
+import { UserObj } from "../decorators/user-obj.decorator";
 
 @Controller('/hour')
 export class HourController {
   constructor(@Inject(HourService) private hourService: HourService) {}
 
   @Get('/')
-  @UseGuards(AuthGuard('jwt'))
-  @UseInterceptors(MyTimeoutInterceptor)
+  // @UseGuards(AuthGuard('jwt'))
+  // @UseInterceptors(MyTimeoutInterceptor)
   getHour(): Promise<ListHourResAll> {
     return this.hourService.listAll();
   }
@@ -59,12 +60,19 @@ export class HourController {
   }
 
   @Post('/')
-  createHour(@Body() newHour: CreateHourDto) {
-    return this.hourService.createHour(newHour);
+  createHour(
+    @Body() newHour: CreateHourDto,
+    @UserObj() employee:EmployeeEntity,
+  ) {
+    return this.hourService.createHour(newHour, employee);
   }
 
   @Put('/:id')
-  updateHourtById(@Param('id') id: string, @Body() updateHour: UpdateHourDto) {
+  updateHourtById(
+    @Param('id') id: string,
+    @Body() updateHour: UpdateHourDto,
+
+  ) {
     this.hourService.updateHour(id, updateHour);
   }
 

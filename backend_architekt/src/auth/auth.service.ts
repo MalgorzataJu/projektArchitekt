@@ -33,38 +33,46 @@ export class AuthService {
       token = uuid();
       userWithThisToken = await EmployeeEntity.findOneBy({ currentTokenId: token });
     } while (!!userWithThisToken);
-      employee.currentTokenId = token;
+    employee.currentTokenId = token;
     await employee.save();
 
     return token;
   }
 
   async login(req: AuthLoginDto, res: Response): Promise<any> {
+
     try {
-      const user = await EmployeeEntity.findOneBy({
+      const employee = await EmployeeEntity.findOneBy({
         email: req.email,
         password: hashPwd(req.password),
       });
 
-      if (!user) {
+      if (!employee) {
         return res.json({ error: 'Invalid login data!' });
       }
 
-      const token = await this.createToken(await this.generateToken(user));
+      const token = await this.createToken(await this.generateToken(employee));
 
       return res
         .cookie('jwt', token.accessToken, {
+          //ustawić true jak na https
           secure: false,
           domain: 'localhost',
           httpOnly: true,
         })
-        .json({ ok: true, email:user.email });
+        .json({
+          email: employee.email,
+          role: employee.authStrategy,
+          token: token,
+        });
+
     } catch (e) {
       return res.json({ error: e.message });
     }
   }
 
   async logout(user: EmployeeEntity, res: Response) {
+
     try {
       user.currentTokenId = null;
       await user.save();
@@ -77,5 +85,9 @@ export class AuthService {
     } catch (e) {
       return res.json({ error: e.message });
     }
+  }
+
+  async refresh(employee: EmployeeEntity, res: Response) {
+    return await this.createToken(await this.generateToken(employee));
   }
 }

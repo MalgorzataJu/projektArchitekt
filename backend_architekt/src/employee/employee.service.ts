@@ -10,16 +10,20 @@ import { EmployeeEntity } from '../entities/Employee.entity';
 import { ProfileEntity } from '../entities/Profile.entity';
 import { Repository } from 'typeorm';
 import {
-  CreateEmployeeProfileParams,
-  ListEmployeeResAll,
-  RegisterEmployeeRespon,
-} from '../utils/types';
+  CreateEmployeeProfileParams, CreateEmployeeRes,
+  EmployeeRes
+} from "../utils/types";
 import { UpdateEmployeeDto } from './dto/updateUser.dto';
 import { RegisterEmployeeRegDto } from './dto/registerEmployeeReg.dto';
 import { hashPwd } from '../utils/hash-pwd';
 
 @Injectable()
 export class EmployeeService {
+  filter(employee: EmployeeEntity ): CreateEmployeeRes{
+    const {id, email} = employee;
+
+    return {id, email }
+  }
   constructor(
     @InjectRepository(ProfileEntity)
     private profileRepository: Repository<ProfileEntity>,
@@ -38,28 +42,28 @@ export class EmployeeService {
     return restEmployeeList;
   }
 
-  async getOne(id: string): Promise<EmployeeEntity> {
+  async getOne(id: string) {
+    console.log('przekazane ID', id);
     return await EmployeeEntity.findOne({ where: { id } });
+    // const employee = await EmployeeEntity.findOne({ where: {
+    //   id,
+    //   // hours,
+    //   } });
+    // const hours = await this.hours.getOneEmployee(id)
   }
 
   async getOneByEmail(email: string): Promise<EmployeeEntity> {
     return await EmployeeEntity.findOneBy({ email });
   }
 
-  async getAllForEmployee(id: string) {
-    // const employee = await EmployeeEntity.findOne({ where: {
-    //   id,
-    //   // hours,
-    //   } });
-    // const hours = await this.hours.getOneEmployee(id)
-    return 'hours';
+  async getOneEmployee(id: string) {
+    const employee = await EmployeeEntity.findOne({ where: { id } });
+    console.log('pracownik',employee);
+    return employee;
   }
 
-  async createEmployee(
-    userDetails: RegisterEmployeeRegDto,
-  ): Promise<{ isOk: boolean; message: string }> {
-    const { email, name, password, lastname, hourly } = userDetails;
-
+  async createEmployee(userDetails: RegisterEmployeeRegDto): Promise<CreateEmployeeRes> {
+    const { email, password } = userDetails;
     const user = await EmployeeEntity.findOneBy({ email });
 
     if (user)
@@ -79,10 +83,8 @@ export class EmployeeService {
     const { id } = await EmployeeEntity.save(newUser);
 
     this.createEmployeeProfile(id, userDetails);
-    return {
-      isOk: true,
-      message: 'Employee was added.',
-    };
+
+    return this.filter(newUser);
   }
 
   async updateEmployee(id: string, updateUserDetail: UpdateEmployeeDto) {
@@ -106,6 +108,7 @@ export class EmployeeService {
     const newProfile = this.profileRepository.create(createUserProfileDetails);
     const savedProfile = await this.profileRepository.save(newProfile);
     user.profile = savedProfile;
+
     return EmployeeEntity.save(user);
   }
 }
