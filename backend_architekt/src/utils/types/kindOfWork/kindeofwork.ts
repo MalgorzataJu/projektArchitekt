@@ -3,7 +3,7 @@ export interface CreateKindOfWork extends Omit<KindOfWorkItemEntity, 'id'> {
 }
 
 export interface KindOfWorkItemEntity {
-    id?: string;
+    id: string;
     hourstype:string;
 }
 

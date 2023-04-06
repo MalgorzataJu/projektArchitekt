@@ -1,17 +1,23 @@
 import React, {FormEvent, useEffect, useState} from 'react';
 import {CreateHourRecord, ListAllToAddHoursRes} from 'types';
 import {Spinner} from "../../components/common/spiner/spinner";
+import {Card} from "react-bootstrap";
+import axios from "axios";
+import {HoursView} from "../../views/HoursView";
 
 interface Props {
     // onEmployeeChange: () => void;
 }
 
 export const AddHours = (props: Props) => {
+
+
     const [data, setData] = useState<ListAllToAddHoursRes >({
         employeeList: [],
         kindofworkList: [],
         projectList: [],
     })
+
     const [form, setForm] = useState<CreateHourRecord>({
         projectId: '',
         employeeId: '',
@@ -32,17 +38,28 @@ export const AddHours = (props: Props) => {
 
     const refreshHours = async () => {
 
-        const res = await fetch(`http://127.0.0.1:3001/api/hour/add`);
-        const data = await res.json();
+        try {
+            await axios.get("http://localhost:3001/hour/add",
+                {withCredentials: true}
+                    )
+                .then((response) => {
 
-        setData(data);
-        setForm({
-            projectId: form.projectId?? data.projectList[0].projectId,
-            employeeId: form.projectId ?? data.employeeList[0].employeeId,
-            kindofworkId: form.kindofworkId ?? data.kindofworkList[0].kindofworkId,
-            quantity: Number(form.kindofworkId),
-            date: new data(),
-        })
+                    setData(response.data)
+                    console.log("RESPONSE DATA",response.data)
+                    console.log('projekt lisr', response.data.projectList[0].id);
+                    console.log('FORM', form);
+                    setForm({
+                        projectId: response.data.projectList[0].id,
+                        employeeId: response.data.employeeList[0].id,
+                        kindofworkId: response.data.kindofworkList[0].id,
+                        quantity: 1,
+                        date:  new Date().toLocaleDateString('en-CA'),
+                    })
+
+                });
+        } finally {
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
@@ -58,16 +75,14 @@ export const AddHours = (props: Props) => {
         console.log(form)
 
         try {
-            const res = await fetch(`http://localhost:3001/api/hour`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(form),
-            });
+            await axios.post("http://localhost:3001/hour", form,
+                {withCredentials: true}
+            )
+                .then((response) => {
+                    console.log('response ', response.data)
+                    setResultInfo(`${response.data} has been created.`);
+                });
 
-            const data: string = await res.json();
-            setResultInfo(`${data} has been created.`);
 
         } finally {
             setLoading(false);
@@ -80,15 +95,17 @@ export const AddHours = (props: Props) => {
     }
 
     if (resultInfo !== null) {
-        return <div>
-            <p><strong>{resultInfo}</strong></p>
-            <button onClick={() => setResultInfo(null)}>Add another one</button>
-        </div>;
+        return <HoursView/>
     }
 
     return <>
-        <h2>Dodaj Godziny pracy:</h2>
-        <form onSubmit={sendForm} className="AddEmployee">
+            <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ minHeight: "500px", minWidth: "600px", }}
+            ><Card>
+            <Card.Header><h2>Dodaj Godziny pracy</h2></Card.Header>
+            <Card.Body>
+            <form onSubmit={sendForm} className="AddEmployee">
             <div className='LabelForm'>
                 Pracownik:
                 <select
@@ -99,7 +116,7 @@ export const AddHours = (props: Props) => {
                     {
                         data.employeeList.map(employee => (
                             <option key={employee.id} value={employee.id}>
-                                {/*{employee.name} {employee.lastname}*/}
+                                {employee.name}
                             </option>
                         ))
                     }
@@ -146,7 +163,6 @@ export const AddHours = (props: Props) => {
                         name="date"
                         value={form.date}
                         onChange={e => updateForm('date', e.target.value)}
-
                     />
                 </label>
             </div>
@@ -162,8 +178,10 @@ export const AddHours = (props: Props) => {
                     /><br/>
                 </label>
             </div>
-
             <button className="ButtonForm" type="submit">Dodaj</button>
         </form>
-    </>
+      </Card.Body>
+    </Card>
+  </div>
+ </>
 };

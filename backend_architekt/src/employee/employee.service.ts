@@ -19,7 +19,7 @@ import { hashPwd } from '../utils/hash-pwd';
 @Injectable()
 export class EmployeeService {
   filter(employee: EmployeeEntity ): CreateEmployeeRes{
-    const {id, email} = employee;
+    const {id, email } = employee;
 
     return {id, email }
   }

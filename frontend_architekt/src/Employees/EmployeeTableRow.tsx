@@ -40,7 +40,7 @@ export const EmployeeTableRow = (props : Props) => {
                 {props.employee.lastname}
             </td>
             <td>
-                {/*{props.employee.email}*/}
+                {props.employee.email}
             </td>
             <td>
                 {props.employee.hourly}

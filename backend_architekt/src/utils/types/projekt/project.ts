@@ -17,6 +17,10 @@ export interface ProjectSimpleRes {
   endDate: string;
   quantityHours: number;
 }
+export interface ProjectNameRes {
+  id: string;
+  name: string;
+}
 
 export interface CreateProject {
   name: string;

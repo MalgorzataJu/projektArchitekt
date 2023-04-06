@@ -2,12 +2,20 @@ import { Inject, Injectable, Scope } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { HourEntity } from '../entities/Hour.entity';
 import { Repository } from 'typeorm';
-import { EmployeeEntity, ListHourRes, ListHourResAll } from "../utils/types";
+import {
+  ListAllToAddHoursRes,
+  ListHourRes,
+  ListHourResAll,
+  ProjectNameRes,
+} from '../utils/types';
 import { CreateHourDto } from './dto/createHour.dto';
 import { UpdateHourDto } from './dto/updateHour.dto';
 import { ProjectService } from '../project/project.service';
 import { EmployeeService } from '../employee/employee.service';
 import { KindOfWorkService } from '../kind-of-work/kind-of-work.service';
+import { ProjectEntity } from '../entities/Project.entity';
+import { KindOfWorkEntity } from '../entities/Kind-of-work.entity';
+import { EmployeeEntity } from "../entities/Employee.entity";
 
 @Injectable({ scope: Scope.REQUEST })
 export class HourService {
@@ -18,8 +26,9 @@ export class HourService {
   ) {}
 
   async listAll(): Promise<ListHourResAll[]> {
-
-    const hours = await HourEntity.find({ relations: ['project', 'employee', 'kindofwork'] });
+    const hours = await HourEntity.find({
+      relations: ['project', 'employee', 'kindofwork'],
+    });
 
     return hours.map((hour, index) => {
       const h = {
@@ -35,6 +44,33 @@ export class HourService {
         hour: h,
       };
     });
+  }
+
+  async listProjectEmployeeKindeOfWorkAll(): Promise<ListAllToAddHoursRes> {
+
+    const projectList = (await ProjectEntity.find()).map((el) => ({
+      id: el.id,
+      name: el.name,
+    }));
+
+    const kindofworkList = (await KindOfWorkEntity.find()).map((el) => ({
+      id: el.id,
+      hourstype: el.hourstype,
+    }));
+
+    const employeeList = (await EmployeeEntity.find({
+      relations: ['profile']
+    }))
+      .map((el) => ({
+      id: el.id,
+      name: el.profile.name,
+    }));
+
+    return {
+      employeeList: employeeList,
+      projectList: projectList,
+      kindofworkList: kindofworkList,
+    };
   }
 
   async getAllForEmplooyee(enployeeId: string) {
@@ -126,13 +162,15 @@ export class HourService {
   //   return hours;
   // }
 
-  async createHour(hour: CreateHourDto, employee: EmployeeEntity) {
+  async createHour(hour: CreateHourDto): Promise< {isSuccess: boolean} > {
+
     const { projectId, employeeId, quantity, kindofworkId } = hour;
+
     const project = await this.projectService.getOneProject(projectId);
-    // const employee = await this.employeeService.getOne(employeeId);
-    const kindOfWork = await this.kindOfWorkService.getOneKindOfWork(
-      kindofworkId,
-    );
+    const employee = await this.employeeService.getOne(employeeId);
+    const kindOfWork = await this.kindOfWorkService.getOneKindOfWork(kindofworkId);
+
+    console.log("hours z frontu", hour);
 
     if (
       typeof projectId !== 'string' ||
@@ -151,12 +189,17 @@ export class HourService {
       };
     }
 
-    const newHour = HourEntity.create({
-      ...hour,
-      date: new Date(),
+    const newHour = await HourEntity.create({
+          ...hour,
+          project,
+          employee,
+          kindofwork: kindOfWork,
     });
 
-    return HourEntity.save(newHour);
+    console.log('Wysyłana do bazy', newHour);
+    await HourEntity.save(newHour);
+
+    return { isSuccess: true };
   }
 
   async updateHour(id: string, updateHour: UpdateHourDto) {

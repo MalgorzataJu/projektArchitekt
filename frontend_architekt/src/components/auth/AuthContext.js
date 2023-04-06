@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+
   const [user, setUser] = useState(() => {
 
-    let userProfle = localStorage.getItem("userProfile");
+    let userProfle = localStorage.getItem("jwt");
 
     if (userProfle) {
       return JSON.parse(userProfle);
@@ -23,13 +24,12 @@ export const AuthContextProvider = ({ children }) => {
       withCredentials: true,
     });
 
-    console.log("api response", apiResponse.data)
     // if (apiResponse.data.isOk === false ) {
     //   setUser(null);
     // } else {
-      setUser(apiResponse.data);
-      localStorage.setItem("jwt", JSON.stringify(apiResponse.data));
-      navigate("/");
+    localStorage.setItem("jwt", JSON.stringify(apiResponse.data));
+    setUser(apiResponse.data);
+    navigate("/");
     // }
   };
 

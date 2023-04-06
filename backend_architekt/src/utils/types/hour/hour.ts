@@ -1,5 +1,5 @@
-import { EmployeeRes } from "../employee";
-import { ProjectSimpleRes } from "../projekt";
+import { EmployeeRes, EmployeeResNAme } from "../employee";
+import { ProjectNameRes, ProjectSimpleRes } from "../projekt";
 import { KindOfWorkItemEntity } from "../kindOfWork";
 
 export interface CreateHour {
@@ -40,8 +40,8 @@ export interface ListHourResAll {
 }
 
 export interface ListAllToAddHoursRes{
-    employeeList:EmployeeRes[],
-    projectList: ProjectSimpleRes[],
+    employeeList:EmployeeResNAme[],
+    projectList: ProjectNameRes[],
     kindofworkList:KindOfWorkItemEntity[],
 }
 

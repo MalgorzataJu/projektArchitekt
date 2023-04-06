@@ -1,6 +1,6 @@
 import React, {SyntheticEvent, useContext, useState} from "react";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import AuthContext from "../components/shared/AuthContext";
+import AuthContext from "../components/auth/AuthContext";
 
 export const Login = () => {
   const [loginPar, setLoginPer] = useState({

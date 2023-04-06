@@ -2,6 +2,7 @@ import React, {FormEvent, useState} from 'react';
 import {CreateProject, ProjectItemEntity} from 'types';
 import {Spinner} from "../../components/common/spiner/spinner";
 import './AddProject.css';
+import {Card} from "react-bootstrap";
 
 export const AddProject = () => {
     const [form, setForm] = useState<CreateProject>({
@@ -55,8 +56,13 @@ export const AddProject = () => {
     }
 
     return <>
-        <h2>Dodaj projekt</h2>
-        <form onSubmit={sendForm} className="AddProject">
+            <div
+                className="d-flex justify-content-center align-items-center"
+                style={{ minHeight: "500px", minWidth: "600px", }}
+            ><Card>
+            <Card.Header><h2>Dodaj projekt</h2></Card.Header>
+            <Card.Body>
+            <form onSubmit={sendForm} className="AddProject">
             <div className='LabelForm'>
                 <label>
                     Nazwa projektu:
@@ -141,5 +147,8 @@ export const AddProject = () => {
             </div>
             <button className="ButtonForm" type="submit">Dodaj</button>
         </form>
-    </>
+    </Card.Body>
+   </Card>
+  </div>
+</>
 };

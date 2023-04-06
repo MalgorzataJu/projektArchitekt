@@ -23,16 +23,16 @@ export class KindOfWorkController {
     this.kindOfWorkService.createKindOfWork(newkindOfWork);
   }
 
-  @Put('/:id')
-  updateKindOfWorkById(
-    @Param('id') id: string,
-    @Body() updateKindOfWork: CreateKindofworkDto,
-  ) {
-    this.kindOfWorkService.updateKindOfWork(id, updateKindOfWork);
-  }
-  @Delete('/:id')
-  deleteUserById(@Param('id') id: string) {
-    this.kindOfWorkService.deleteKindOfWork(id);
-  }
+  // @Put('/:id')
+  // updateKindOfWorkById(
+  //   @Param('id') id: string,
+  //   @Body() updateKindOfWork: CreateKindofworkDto,
+  // ) {
+  //   this.kindOfWorkService.updateKindOfWork(id, updateKindOfWork);
+  // }
+  // @Delete('/:id')
+  // deleteUserById(@Param('id') id: string) {
+  //   this.kindOfWorkService.deleteKindOfWork(id);
+  // }
 
 }

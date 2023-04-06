@@ -10,7 +10,7 @@ import {
 } from "@nestjs/common";
 import { EmployeeService } from './employee.service';
 import {
-  CreateEmployeeProfileParams, EmployeeEntity
+  CreateEmployeeProfileParams
 } from "../utils/types";
 import { CreateEmployeeDto } from "./dto/createEmployee.dto";
 import { UpdateEmployeeDto } from "./dto/updateUser.dto";
@@ -27,7 +27,7 @@ export class EmployeeController {
   ) {}
 
   @Get('/')
-  // @UseGuards(AuthGuard('jwt'))
+  @UseGuards(AuthGuard('jwt'))
   @UseInterceptors(MyTimeoutInterceptor)
   getEmployee(){
     return this.employeeService.allEmployee();

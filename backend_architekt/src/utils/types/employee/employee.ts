@@ -22,6 +22,11 @@ export interface EmployeeRes {
   name: string;
   email: string;
 }
+
+export interface EmployeeResNAme {
+  id: string;
+  name: string;
+}
 export type ProfileEntityRes = {
   id?: string;
   name: string;
@@ -29,7 +34,7 @@ export type ProfileEntityRes = {
   hourly?: number;
 }
 
-export interface EmployeeEntity extends EmployeeRes {
+export interface EmployeeItemEntity extends EmployeeRes {
   email: string;
   password: string;
   authStrategy: string;
@@ -55,7 +60,7 @@ export type UpdateEmployeeParams = {
   email: string;
 };
 
-export interface CreateEmpoyeeRecord extends Omit<EmployeeEntity, 'id'> {
+export interface CreateEmpoyeeRecord extends Omit<EmployeeItemEntity, 'id'> {
   id?: string;
 }
 export interface RegisterUserRespon {
@@ -65,7 +70,7 @@ export interface RegisterUserRespon {
 
 export interface ListEmployeeRes {
   place: number;
-  employee: EmployeeEntity;
+  employee: EmployeeItemEntity;
 }
 
 export interface ListEmployeeResAll {

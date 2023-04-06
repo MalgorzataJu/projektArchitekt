@@ -1,22 +1,24 @@
 import React from 'react';
 import './App.css';
-import {Header} from "./components/Layout/Header";
 import {Route, Routes} from "react-router-dom";
 import {HomeView} from "./views/HomeView";
-import ProtectedRoute from "./components/shared/ProtectedRoute";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 import {Login} from "./views/Login";
 import {EmployeesView} from "./views/EmployeesView";
 import {ProjectsView} from "./views/ProjectsView";
 import {AddProject} from "./Projects/AddProject/AddProject";
-import {AuthContextProvider} from "./components/shared/AuthContext";
-import {HoursList} from "./Hours/HoursList";
+import {AuthContextProvider} from "./components/auth/AuthContext";
 import {HoursView} from "./views/HoursView";
+import {AddEmployee} from "./Employees/AddEmployee/AddEmployee";
+import {NotFoundView} from "./views/NotFoundView";
+import {HeaderMenuLink} from "./components/Layout/HeaderMenuLink";
+import {AddHours} from "./Hours/AddHours/AddHours";
 
 function App() {
     return (
         <div>
             <AuthContextProvider>
-                <Header/>
+                <HeaderMenuLink/>
                 <Routes>
                     <Route path="/" element={<HomeView />}></Route>
                     <Route path="/login"
@@ -33,6 +35,13 @@ function App() {
                                </ProtectedRoute>
                            }
                     ></Route>
+                    <Route path="/add-employee"
+                           element={
+                               <ProtectedRoute accessBy="authenticated">
+                                   <AddEmployee />
+                               </ProtectedRoute>
+                           }
+                    ></Route>
                     <Route path="/projects"
                            element={
                                <ProtectedRoute accessBy="authenticated">
@@ -40,7 +49,7 @@ function App() {
                                </ProtectedRoute>
                            }
                     ></Route>
-                    <Route path="/projects/add"
+                    <Route path="/add-project"
                            element={
                                <ProtectedRoute accessBy="authenticated">
                                    <AddProject />
@@ -54,13 +63,14 @@ function App() {
                                </ProtectedRoute>
                            }
                     ></Route>
-                    <Route path="/hours/add"
+                    <Route path="/add-hour"
                            element={
                                <ProtectedRoute accessBy="authenticated">
-                                   {/*<HomeView />*/}
+                                   <AddHours/>
                                </ProtectedRoute>
                            }
                     ></Route>
+                    <Route path="*" element={<NotFoundView/>} />
                 </Routes>
             </AuthContextProvider>
         </div>

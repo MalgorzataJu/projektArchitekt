@@ -9,7 +9,7 @@ export const HomeView = () => (
                 <Card>
                     <Card.Body>
                         <Card.Text>
-                            <h1>Witamna stronie platformy Architekt.</h1>
+                            <h1>Witam na stronie platformy Architekt.</h1>
 
                             <p>Platforma służy do rejestracji czasu pracy praconików.</p>
                             <p>Pozwala zarządzać projektwami.</p>
