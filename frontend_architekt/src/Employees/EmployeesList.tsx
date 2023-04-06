@@ -2,8 +2,7 @@ import {useEffect, useState} from "react";
 import {ListEmployeeResAll} from 'types';
 import {Spinner} from "../components/common/spiner/spinner";
 import {EmployeeTable} from "./EmployeeTable";
-import {AddEmployee} from "./AddEmployee/AddEmployee";
-import jwtInterceptor from "../helpers/jwtInterceptor";
+import axios from "axios";
 
 
 export const EmployeesList = () => {
@@ -12,9 +11,9 @@ export const EmployeesList = () => {
     const refreshEmployee = async () => {
 
         try {
-            setList(null)
-            jwtInterceptor
-                .get("http://localhost:3001/employee",
+                setList(null)
+
+                await axios.get("http://localhost:3001/employee",
                     {withCredentials: true}
                 )
                 .then((response) => {
@@ -22,7 +21,7 @@ export const EmployeesList = () => {
                 });
 
         } finally {
-            setList(null)
+
         }
     };
 

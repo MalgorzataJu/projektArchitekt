@@ -5,7 +5,7 @@ import {Card} from "react-bootstrap";
 export const NotFoundView = () => (
     <>
     <div
-        className="d-flex justify-content-center align-items-center"
+        className="d-flex justify-content-center"
         style={{ minHeight: "500px", minWidth: "600px" }}
     >
         <Card>

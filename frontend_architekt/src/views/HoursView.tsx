@@ -5,11 +5,11 @@ export const HoursView = () => {
 
     return <>
             <div
-                className="d-flex justify-content-center align-items-center"
+                className="d-flex justify-content-center"
                 style={{ minHeight: "500px", minWidth: "600px" }}
             >
                 <Card>
-                    <Card.Header>Lista Godzin</Card.Header>
+                    <Card.Header><h2>Lista Godzin</h2></Card.Header>
                     <HoursList/>
                 </Card>
             </div>

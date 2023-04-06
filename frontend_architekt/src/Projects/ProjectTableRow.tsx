@@ -50,7 +50,7 @@ export const ProjectTableRow = (props: Props) => {
                 Ilośc godzin wypracowana
             </td>
             <td>
-                {/*{props.project.contact}*/}
+                {props.project.contact}
             </td>
             <td>
                 <a href="#" onClick={deleteProject}>🗑️</a>

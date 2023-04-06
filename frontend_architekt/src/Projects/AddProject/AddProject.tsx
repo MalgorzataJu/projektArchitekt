@@ -7,8 +7,8 @@ import {Card} from "react-bootstrap";
 export const AddProject = () => {
     const [form, setForm] = useState<CreateProject>({
         name: '',
-        startDate: '',
-        endDate: '',
+        startDate:new Date().toLocaleDateString('en-CA'),
+        endDate: new Date().toLocaleDateString('en-CA'),
         description: '',
         quantityHours: 50,
         contact: '',
@@ -58,7 +58,7 @@ export const AddProject = () => {
     return <>
             <div
                 className="d-flex justify-content-center align-items-center"
-                style={{ minHeight: "500px", minWidth: "600px", }}
+                style={{ minHeight: "500px", minWidth: "500px", }}
             ><Card>
             <Card.Header><h2>Dodaj projekt</h2></Card.Header>
             <Card.Body>

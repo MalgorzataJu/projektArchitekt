@@ -101,11 +101,11 @@ export const AddHours = (props: Props) => {
     return <>
             <div
             className="d-flex justify-content-center align-items-center"
-            style={{ minHeight: "500px", minWidth: "600px", }}
+            style={{ minHeight: "500px", minWidth: "800px", }}
             ><Card>
             <Card.Header><h2>Dodaj Godziny pracy</h2></Card.Header>
             <Card.Body>
-            <form onSubmit={sendForm} className="AddEmployee">
+            <form onSubmit={sendForm}>
             <div className='LabelForm'>
                 Pracownik:
                 <select

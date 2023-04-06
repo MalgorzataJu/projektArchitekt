@@ -1,6 +1,7 @@
 import React, {SyntheticEvent, useContext, useState} from "react";
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import AuthContext from "../components/auth/AuthContext";
+import CardHeader from "react-bootstrap/CardHeader";
 
 export const Login = () => {
   const [loginPar, setLoginPer] = useState({
@@ -24,35 +25,41 @@ export const Login = () => {
   }
 
   return <>
-        <Container className="mt-2">
-        <Row>
-            <Col className="col-md-8 offset-md-2">
-                <legend>Login Form</legend>
+      <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ minHeight: "400px", minWidth: "800px" }}
+      ><Card className={"card-login"}>
+        <Card.Header><h2>Zaloguj się:</h2></Card.Header>
+          <Container >
+            <Form>
+                <legend></legend>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email
                     <Form.Control
-                  type="text"
-                  value={loginPar.email}
-                  name='email'
-                  onChange={e =>changeForm("email", e.target.value)}
-              />
-              </Form.Label>
+                          type="text"
+                          value={loginPar.email}
+                          name='email'
+                          onChange={e =>changeForm("email", e.target.value)}
+                     />
+                    </Form.Label>
                 </Form.Group>
-                    <Form.Group className="mb-3" controlId="formPasswor">
-              <Form.Label>Password:
-                  <Form.Control
-                      type="password"
-                    value={loginPar.password}
-                    name='password'
-                    onChange={e =>changeForm("password", e.target.value)}
-                />
-              </Form.Label>
-            </Form.Group>
-            <Button variant="primary" type="button" onClick={loginSubmit}/>
-              Login
-            </Col>
-        </Row>
+                <Form.Group className="mb-3" controlId="formPasswor">
+                    <Form.Label>Password:
+                    <Form.Control
+                        type="password"
+                        value={loginPar.password}
+                        name='password'
+                        onChange={e =>changeForm("password", e.target.value)}
+                    />
+                    </Form.Label>
+                </Form.Group>
+                <Button className="ButtonForm" variant="secondary" size="lg" type="button" onClick={loginSubmit}>
+                         Login
+                </Button>
+            </Form>
     </Container>
-    </>
+ </Card>
+ </div>
+</>
 };
 

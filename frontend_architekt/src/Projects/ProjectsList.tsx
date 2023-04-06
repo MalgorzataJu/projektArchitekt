@@ -8,6 +8,7 @@ export const ProjectsList = () => {
     const [projects, setProjects] = useState<ListProjectSimpleResAll | null>([]);
 
     const refreshProject = async () => {
+
         setProjects(null)
         const res = await fetch(`http://127.0.0.1:3001/project`);
         const data = await res.json();
