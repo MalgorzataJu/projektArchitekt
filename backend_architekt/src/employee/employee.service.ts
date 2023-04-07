@@ -10,7 +10,7 @@ import { EmployeeEntity } from '../entities/Employee.entity';
 import { ProfileEntity } from '../entities/Profile.entity';
 import { Repository } from 'typeorm';
 import {
-  CreateEmployeeProfileParams, CreateEmployeeRes, ListEmployeeResAll
+  CreateEmployeeProfileParams, CreateEmployeeRes, EmployeeResAllInfo, ListEmployeeResAll
 } from "../utils/types";
 import { UpdateEmployeeDto } from './dto/updateUser.dto';
 import { RegisterEmployeeRegDto } from './dto/registerEmployeeReg.dto';
@@ -49,20 +49,23 @@ export class EmployeeService {
     });
   }
 
-  async getOne(id: string) {
-    console.log('przekazane ID', id);
-    return await EmployeeEntity.findOne({ where: { id } });
+  async getOne(id: string): Promise<EmployeeResAllInfo> {
+    const employee = await EmployeeEntity.findOne({
+      where: { id },
+      relations: ['profile'],
+    });
+   console.log(employee);
+
+    return {
+      id:employee.id,
+      name: employee.profile.name,
+      lastname: employee.profile.lastname,
+      email: employee.email,
+      authStrategy: employee.authStrategy,
+      hourly: employee.profile.hourly,
+    }
   }
 
-  async getOneByEmail(email: string): Promise<EmployeeEntity> {
-    return await EmployeeEntity.findOneBy({ email });
-  }
-
-  async getOneEmployee(id: string) {
-    const employee = await EmployeeEntity.findOne({ where: { id } });
-    console.log('pracownik',employee);
-    return employee;
-  }
 
   async createEmployee(userDetails: RegisterEmployeeRegDto): Promise<CreateEmployeeRes> {
     const { email, password } = userDetails;

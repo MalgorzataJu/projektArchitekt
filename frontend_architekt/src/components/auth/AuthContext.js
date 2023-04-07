@@ -34,10 +34,11 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = async () => {
+    localStorage.removeItem("jwt");
+
     await axios.get("http://localhost:3001/auth/logout",
         { withCredentials: true }
         );
-    localStorage.removeItem("jwt");
     setUser(null);
     navigate("/login");
   };

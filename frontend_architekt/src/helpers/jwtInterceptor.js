@@ -17,7 +17,7 @@ jwtInterceptor.interceptors.response.use(
         .catch((err) => {
           return Promise.reject(err);
         });
-      console.log(error.config);
+      console.log("error config",error.config);
       return axios(error.config);
     } else {
       return Promise.reject(error);

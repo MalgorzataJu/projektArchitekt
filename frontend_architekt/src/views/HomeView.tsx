@@ -1,4 +1,4 @@
-import {Button, Card} from "react-bootstrap";
+import {Card} from "react-bootstrap";
 
 export const HomeView = () => (
     <>
@@ -10,10 +10,8 @@ export const HomeView = () => (
         <h1>RCP Architekt  </h1>
         <Card.Body>
             <Card.Title>Witam na stronie platformy.</Card.Title>
-            <Card.Text>
-                <p>Platforma służy do rejestracji czasu pracy praconików biura.</p>
-                <p>Pozwala zarządzać zespołem.</p>
-            </Card.Text>
+                <h6>Platforma służy do rejestracji czasu pracy praconików pracowni.</h6>
+                <h6>Pozwala zarządzać zespołem.</h6>
             </Card.Body>
             <Card.Footer className="text-muted"></Card.Footer>
         </Card>

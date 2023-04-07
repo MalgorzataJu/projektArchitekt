@@ -10,7 +10,7 @@ import {
 } from "@nestjs/common";
 import { EmployeeService } from './employee.service';
 import {
-  CreateEmployeeProfileParams
+  CreateEmployeeProfileParams, EmployeeResAllInfo
 } from "../utils/types";
 import { CreateEmployeeDto } from "./dto/createEmployee.dto";
 import { UpdateEmployeeDto } from "./dto/updateUser.dto";
@@ -33,19 +33,11 @@ export class EmployeeController {
     return this.employeeService.allEmployee();
   }
 
-
   @Get('/:employeeid')
-  // @UseGuards(AuthGuard('jwt'))
   @UseInterceptors(MyTimeoutInterceptor)
   getEmployeeById(
-    @Param('employeeid') id: string
-  ){
-    return this.employeeService.getOne(id);
-  }
-
-  getEmployeeByEmail(
-    @Param('employeeid') id: string) {
-
+    @Param('employeeid') id: string,
+  ): Promise<EmployeeResAllInfo>{
     return this.employeeService.getOne(id);
   }
 

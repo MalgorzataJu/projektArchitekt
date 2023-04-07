@@ -9,8 +9,8 @@ export const NotFoundView = () => (
         style={{ minHeight: "500px", minWidth: "600px" }}
     >
         <Card>
-            <Card.Header><h2>You are lost :(</h2></Card.Header>
-            <p>Where are we?!</p>
+            <Card.Header><h2>We don't have this information :(</h2></Card.Header>
+            <p>We are still working...</p>
         </Card>
     </div>
     </>

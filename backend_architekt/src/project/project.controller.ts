@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Inject, Param, Post, Put } from "@nestjs/common";
 import { ProjectService } from './project.service';
-import { ListProjectSimpleResAll } from "../utils/types";
+import { ListProjectSimpleResAll, ProjectItemEntity, ProjectSimpleRes } from "../utils/types";
 import { CreateProjectDto } from "./dto/createProject.dto";
 import { UpdateProjectDto } from "./dto/updateProject.dto";
 
@@ -11,6 +11,13 @@ export class ProjectController {
   @Get('/')
   getProject(): Promise<ListProjectSimpleResAll> {
     return this.projectService.listAll();
+  }
+
+  @Get('/:id')
+  getOneProject(
+    @Param('id') id: string,
+  ): Promise<ProjectItemEntity> {
+    return this.projectService.getOneProject(id);
   }
 
   @Post('/')

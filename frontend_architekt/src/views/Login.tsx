@@ -1,7 +1,6 @@
 import React, {SyntheticEvent, useContext, useState} from "react";
-import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
+import {Button, Card,  Container, Form} from "react-bootstrap";
 import AuthContext from "../components/auth/AuthContext";
-import CardHeader from "react-bootstrap/CardHeader";
 
 export const Login = () => {
   const [loginPar, setLoginPer] = useState({
@@ -27,7 +26,7 @@ export const Login = () => {
   return <>
       <div
           className="d-flex justify-content-center align-items-center"
-          style={{ minHeight: "400px", minWidth: "800px" }}
+          style={{ minHeight: "400px", minWidth: "400px" }}
       ><Card className={"card-login"}>
         <Card.Header><h2>Zaloguj się:</h2></Card.Header>
           <Container >

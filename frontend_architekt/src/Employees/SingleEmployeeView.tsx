@@ -1,0 +1,55 @@
+import React, {useEffect, useState} from 'react';
+import { useParams} from "react-router-dom";
+import axios from "axios";
+import { Button, Card, Form, Table} from "react-bootstrap";
+import { EmployeeResAllInfo } from 'types';
+
+export const SingleEmployeeView = () => {
+    const [employee, setEmployee] = useState<EmployeeResAllInfo | null>(null);
+    const {idOfEmployee} = useParams();
+
+    useEffect(() => {
+        (async () => {
+
+            const res =await axios.get(`http://localhost:3001/employee/${idOfEmployee}`, {
+                withCredentials: true,
+            });
+            setEmployee(await res.data);
+            console.log(res.data)
+
+        })();
+    }, []);
+
+    if (employee === null) {
+        return null;
+    }
+
+    return <>
+        <div
+            className="d-flex justify-content-center"
+        >
+            <Card>
+                <Card.Header><h2>Pracownik: {employee.name} {employee.lastname}</h2></Card.Header>
+                <Table striped bordered hover>
+                    <tbody>
+                    <tr>
+                        <th>email:</th>
+                        <td>{employee.email}</td>
+                    </tr>
+                    <tr>
+                        <th>rola:</th>
+                        <td>{employee.authStrategy}</td>
+                    </tr>
+                    <tr>
+                        <th>Stawka:</th>
+                        <td>{employee.hourly}</td>
+                    </tr>
+                    </tbody>
+                </Table>
+                    <Button variant="primary" type="submit">
+                        Edit
+                    </Button>
+            </Card>
+        </div>
+    </>;
+};

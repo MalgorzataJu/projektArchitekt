@@ -28,9 +28,6 @@ export class ProjectService {
     });
   }
 
-
-
-
   async getOneProject(id: string): Promise<ProjectEntity> {
     return ProjectEntity.findOne({ where: { id } });
   }

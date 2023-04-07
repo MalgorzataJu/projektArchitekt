@@ -173,9 +173,6 @@ export class HourService {
     console.log("hours z frontu", hour);
 
     if (
-      typeof projectId !== 'string' ||
-      typeof employeeId !== 'string' ||
-      typeof quantity !== 'number' ||
       projectId === '' ||
       employeeId === '' ||
       kindofworkId === '' ||
@@ -191,6 +188,7 @@ export class HourService {
 
     const newHour = await HourEntity.create({
           ...hour,
+          quantity: Number(quantity),
           project,
           employee,
           kindofwork: kindOfWork,

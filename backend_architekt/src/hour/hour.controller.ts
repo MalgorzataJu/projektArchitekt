@@ -24,8 +24,8 @@ export class HourController {
   constructor(@Inject(HourService) private hourService: HourService) {}
 
   @Get('/')
-  // @UseGuards(AuthGuard('jwt'))
-  // @UseInterceptors(MyTimeoutInterceptor)
+  @UseGuards(AuthGuard('jwt'))
+  @UseInterceptors(MyTimeoutInterceptor)
   getHour(): Promise<ListHourResAll[]> {
     return this.hourService.listAll();
   }
@@ -69,7 +69,6 @@ export class HourController {
   @Post('/')
   createHour(
     @Body() newHour: CreateHourDto,
-    @UserObj() employee:EmployeeEntity,
   ) {
     return this.hourService.createHour(newHour);
   }

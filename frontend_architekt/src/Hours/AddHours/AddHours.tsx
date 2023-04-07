@@ -45,14 +45,11 @@ export const AddHours = (props: Props) => {
                 .then((response) => {
 
                     setData(response.data)
-                    console.log("RESPONSE DATA",response.data)
-                    console.log('projekt lisr', response.data.projectList[0].id);
-                    console.log('FORM', form);
                     setForm({
                         projectId: response.data.projectList[0].id,
                         employeeId: response.data.employeeList[0].id,
                         kindofworkId: response.data.kindofworkList[0].id,
-                        quantity: 1,
+                        quantity: 10,
                         date:  new Date().toLocaleDateString('en-CA'),
                     })
 
@@ -72,14 +69,14 @@ export const AddHours = (props: Props) => {
 
         setLoading(true);
 
-        console.log(form)
+        console.log('FORM', form);
 
         try {
             await axios.post("http://localhost:3001/hour", form,
                 {withCredentials: true}
             )
                 .then((response) => {
-                    console.log('response ', response.data)
+                    if (response.data.isSuccess)
                     setResultInfo(`${response.data} has been created.`);
                 });
 
@@ -94,7 +91,7 @@ export const AddHours = (props: Props) => {
         return <Spinner/>;
     }
 
-    if (resultInfo !== null) {
+    if (resultInfo) {
         return <HoursView/>
     }
 

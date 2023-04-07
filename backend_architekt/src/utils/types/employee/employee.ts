@@ -3,14 +3,14 @@ export type CreateEmployeeProfileParams = {
   lastname: string;
   hourly?: number;
 };
-export type RegisterEmployeeRes = {
-  name: string;
-  lastname: string;
-  email: string;
-  password: string;
-  confirm: string;
-  hourly: number;
-}
+// export type RegisterEmployeeRes = {
+//   name: string;
+//   lastname: string;
+//   email: string;
+//   password: string;
+//   confirm: string;
+//   hourly: number;
+// }
 
 export type CreateEmployeeRes = {
   id: string;
@@ -21,6 +21,15 @@ export interface EmployeeRes {
   id?: string;
   name: string;
   email: string;
+}
+
+export interface EmployeeResAllInfo {
+  id?: string;
+  name: string;
+  lastname: string;
+  email: string;
+  authStrategy: string;
+  hourly?: number;
 }
 
 export interface EmployeeResNAme {

@@ -23,7 +23,6 @@
 }
 
 .card-login {
-    opacity: 85%;
     padding: 40px!important;
 }
 @keyframes App-logo-spin {
@@ -33,6 +32,16 @@
     to {
         transform: rotate(360deg);
     }
+}
+.table {
+    font-size: 0.7rem;
+}
+.table a {
+    color: #1a1717;
+    font-size: small;
+}
+.form {
+    font-size: 0.7rem;
 }
 
 .footer {
@@ -44,6 +53,5 @@
     font-size: .75rem;
     /*margin-top:-60px;*/
     position: absolute;
-    bottom:0;
     padding-top: 10px;
 }

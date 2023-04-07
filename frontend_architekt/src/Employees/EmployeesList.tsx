@@ -3,10 +3,13 @@ import {ListEmployeeResAll} from 'types';
 import {Spinner} from "../components/common/spiner/spinner";
 import {EmployeeTable} from "./EmployeeTable";
 import axios from "axios";
+import {Login} from "../views/Login";
 
 
 export const EmployeesList = () => {
+
     const [list, setList] = useState<ListEmployeeResAll[] | null>([]);
+    const [isLogin, setIsLogin] = useState<boolean>(false);
 
     const refreshEmployee = async () => {
 
@@ -18,7 +21,13 @@ export const EmployeesList = () => {
                 )
                 .then((response) => {
                     setList(response.data);
-                });
+                    setIsLogin(true);
+                })
+                .catch(error => {
+                    console.log(error.response);
+
+                    return error.response;
+                }) ;
 
         } finally {
 
@@ -29,6 +38,7 @@ export const EmployeesList = () => {
         refreshEmployee();
     }, []);
 
+    if (!isLogin) return <Login/>
 
     if (list === null) {
         return <Spinner/>;

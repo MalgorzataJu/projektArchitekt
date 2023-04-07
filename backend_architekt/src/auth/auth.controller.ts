@@ -23,7 +23,6 @@ export class AuthController {
   async employeeLogout(
     @UserObj() employee:EmployeeEntity,
     @Res() res: Response){
-    console.log("employee", employee);
     return this.authService.logout(employee, res);
   }
 }

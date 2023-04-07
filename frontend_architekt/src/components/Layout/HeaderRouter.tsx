@@ -12,8 +12,10 @@ import {HoursView} from "../../views/HoursView";
 import {AddHours} from "../../Hours/AddHours/AddHours";
 import {NotFoundView} from "../../views/NotFoundView";
 import React from "react";
+import {SingleProjectView} from "../../Projects/SingleProjectView";
+import {SingleEmployeeView} from "../../Employees/SingleEmployeeView";
 
-export const Header=() => (
+export const HeaderRouter=() => (
     <div >
     <AuthContextProvider>
         <HeaderMenuLink/>
@@ -40,13 +42,29 @@ export const Header=() => (
                        </ProtectedRoute>
                    }
             ></Route>
-            <Route path="/projects"
+            <Route path="/employee/:idOfEmployee"
                    element={
                        <ProtectedRoute accessBy="authenticated">
-                           <ProjectsView />
+                           <SingleEmployeeView />
                        </ProtectedRoute>
                    }
             ></Route>
+
+            <Route path="/projects"
+                   element={
+                <ProtectedRoute accessBy="authenticated">
+                <ProjectsView/>
+                </ProtectedRoute>
+                    }
+            ></Route>
+            <Route path="/project/:idOfProject"
+                   element={
+                <ProtectedRoute accessBy="authenticated">
+                <SingleProjectView/>
+                </ProtectedRoute>
+                    }
+            ></Route>
+
             <Route path="/add-project"
                    element={
                        <ProtectedRoute accessBy="authenticated">

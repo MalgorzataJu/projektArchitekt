@@ -1,6 +1,7 @@
 import React from "react";
 import { ListEmployeeRespon } from "types";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 interface Props {
     key: string | undefined,
@@ -17,8 +18,8 @@ export const EmployeeTableRow = (props : Props) => {
         if (!window.confirm(`Are you sure you want to remove ${props.employee.name}?`)) {
             return;
         }
-        axios
-            .delete(`http://localhost:3001/employee/${props.employee.id}`,
+
+        axios.delete(`http://localhost:3001/employee/${props.employee.id}`,
         {withCredentials: true}
             )
             .then((res) => {
@@ -34,7 +35,9 @@ export const EmployeeTableRow = (props : Props) => {
         <tr  className="UserListOneItem">
             <th>{props.place}</th>
             <td>
+                <Link to={`/employee/${props.employee.id}`}>
                 {props.employee.name}
+                </Link>
             </td>
             <td>
                 {props.employee.lastname}

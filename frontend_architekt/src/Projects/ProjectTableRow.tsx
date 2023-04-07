@@ -1,4 +1,6 @@
 import { ProjectSimpleRes} from "types";
+import axios from "axios";
+import {Link} from "react-router-dom";
 
 interface Props {
     project: ProjectSimpleRes;
@@ -14,12 +16,12 @@ export const ProjectTableRow = (props: Props) => {
             return;
         }
 
-        const res = await fetch(`http://127.0.0.1:3001/project/${props.project.id}`, {
-            method: 'DELETE',
+        const res = await axios.delete(`http://127.0.0.1:3001/project/${props.project.id}`, {
+            withCredentials: true,
         });
 
         if ([400, 500].includes(res.status)) {
-            const error = await res.json();
+            const error = await res.data;
             alert(`Error occurred: ${error.message}`);
             return;
         }
@@ -30,9 +32,9 @@ export const ProjectTableRow = (props: Props) => {
         <tr>
             <th>{props.number}</th>
             <td>
+                <Link to={`/project/${props.project.id}`}>
                 {props.project.name}
-                {/*<Link to={`/gift/${props.gift.id}`}>*/}
-                {/*</Link>*/}
+                </Link>
             </td>
             <td>
                 {props.project.description}

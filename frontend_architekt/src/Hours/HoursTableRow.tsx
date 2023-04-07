@@ -1,4 +1,5 @@
 import {HoursItemRes} from "types";
+import axios from "axios";
 
 interface Props {
     hour: HoursItemRes;
@@ -10,17 +11,19 @@ export const HoursTableRow = (props: Props) => {
     const deleteHour = async (e: React.MouseEvent<Element, MouseEvent>) => {
         e.preventDefault();
 
-        if (!window.confirm(`Are you sure you want to remove ${props.hour.employeeId}?`)) {
+        if (!window.confirm(`Are you sure you want to remove hour:
+         ${props.hour.projectId}  ${props.hour.employeeId} with date: ${props.hour.date}?`)) {
             return;
         }
 
-        const res = await fetch(`http://127.0.0.1:3001/project/${props.hour.id}`, {
-            method: 'DELETE',
+        const res = await axios.delete(`http://127.0.0.1:3001/hour/${props.hour.id}`, {
+            withCredentials: true,
         });
 
+        console.log(res);
+
         if ([400, 500].includes(res.status)) {
-            const error = await res.json();
-            alert(`Error occurred: ${error.message}`);
+            alert(`Error occurred: ${res.statusText}`);
             return;
         }
 
