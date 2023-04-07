@@ -4,9 +4,6 @@ import { ProfileEntity } from '../entities/Profile.entity';
 import { EmployeeEntity } from '../entities/Employee.entity';
 import { EmployeeService } from './employee.service';
 import { EmployeeController } from './employee.controller';
-import { KindOfWorkEntity } from "../entities/Kind-of-work.entity";
-import { TaskEntity } from "../entities/Task.entity";
-import { HourEntity } from "../entities/Hour.entity";
 
 @Module({
   imports: [

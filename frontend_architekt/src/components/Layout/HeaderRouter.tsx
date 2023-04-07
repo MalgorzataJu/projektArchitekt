@@ -7,13 +7,15 @@ import {Login} from "../../views/Login";
 import {EmployeesView} from "../../views/EmployeesView";
 import {AddEmployee} from "../../Employees/AddEmployee/AddEmployee";
 import {ProjectsView} from "../../views/ProjectsView";
-import {AddProject} from "../../Projects/AddProject/AddProject";
+import {AddProject} from "../../Projects/AddAndEditProject/AddProject";
 import {HoursView} from "../../views/HoursView";
 import {AddHours} from "../../Hours/AddHours/AddHours";
 import {NotFoundView} from "../../views/NotFoundView";
 import React from "react";
 import {SingleProjectView} from "../../Projects/SingleProjectView";
 import {SingleEmployeeView} from "../../Employees/SingleEmployeeView";
+import {EditProject} from "../../Projects/AddAndEditProject/EditProject";
+import {EditEmployee} from "../../Employees/AddEmployee/EditEmployee";
 
 export const HeaderRouter=() => (
     <div >
@@ -42,6 +44,13 @@ export const HeaderRouter=() => (
                        </ProtectedRoute>
                    }
             ></Route>
+            <Route path="/employee/edit/:idOfEmployee"
+                   element={
+                       <ProtectedRoute accessBy="authenticated">
+                           <EditEmployee />
+                       </ProtectedRoute>
+                   }
+            ></Route>
             <Route path="/employee/:idOfEmployee"
                    element={
                        <ProtectedRoute accessBy="authenticated">
@@ -61,6 +70,13 @@ export const HeaderRouter=() => (
                    element={
                 <ProtectedRoute accessBy="authenticated">
                 <SingleProjectView/>
+                </ProtectedRoute>
+                    }
+            ></Route>
+            <Route path="/project/edit/:idOfProject"
+                   element={
+                <ProtectedRoute accessBy="authenticated">
+                <EditProject/>
                 </ProtectedRoute>
                     }
             ></Route>

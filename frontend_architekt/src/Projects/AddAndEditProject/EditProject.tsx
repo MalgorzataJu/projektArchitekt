@@ -1,21 +1,47 @@
-import React, {FormEvent, useState} from 'react';
+import React, {FormEvent, useEffect, useState} from 'react';
 import {CreateProject, ProjectItemEntity} from 'types';
 import {Spinner} from "../../components/common/spiner/spinner";
 import './AddProject.css';
 import {Card} from "react-bootstrap";
+import {useParams} from "react-router-dom";
+import axios from "axios";
+import {ProjectsView} from "../../views/ProjectsView";
 
-export const AddProject = () => {
+export const EditProject = () => {
+    const {idOfProject} = useParams();
+    const [loading, setLoading] = useState<boolean>(false);
+    const [resultInfo, setResultInfo] = useState< {status:boolean, message:string}>({
+        status: false,
+        message: '',
+    });
     const [form, setForm] = useState<CreateProject>({
         name: '',
-        startDate:new Date().toLocaleDateString('en-CA'),
-        endDate: new Date().toLocaleDateString('en-CA'),
+        startDate:'',
+        endDate: '',
         description: '',
-        quantityHours: 50,
+        quantityHours: 0,
         contact: '',
 
     });
-    const [loading, setLoading] = useState<boolean>(false);
-    const [resultInfo, setResultInfo] = useState<string | null>(null);
+
+    useEffect(() => {
+        (async () => {
+
+            const res =await axios.get(`http://localhost:3001/project/${idOfProject}`, {
+                withCredentials: true,
+            });
+            const project = await res.data;
+
+            setForm({
+                name:project.name,
+                startDate:new Date(project.startDate).toLocaleDateString('en-CA'),
+                endDate: new Date(project.endDate).toLocaleDateString('en-CA'),
+                description: project.description,
+                quantityHours: Number(project.quantityHours),
+                contact: project.contact,
+            });
+        })();
+    }, []);
 
     const updateForm = (key: string, value: any) => {
         setForm(form => ({
@@ -29,16 +55,12 @@ export const AddProject = () => {
 
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:3001/project`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(form),
-            });
-            const data: ProjectItemEntity = await res.json();
+            const res = await axios.put(`http://localhost:3001/project/${idOfProject}`, form,
+                {withCredentials: true}
+                );
+            const data: ProjectItemEntity = await res.data;
 
-            setResultInfo(`${data.name} has been created.`);
+            setResultInfo({status: true, message: `${data.name} has been changed.`});
         } finally {
             setLoading(false);
         }
@@ -48,20 +70,18 @@ export const AddProject = () => {
         return <Spinner/>;
     }
 
-    if (resultInfo !== null) {
-        return <div>
-            <p><strong>{resultInfo}</strong></p>
-            <button onClick={() => setResultInfo(null)}>Add another one</button>
-        </div>;
+    if (resultInfo.status) {
+        return  <ProjectsView/>
     }
 
     return <>
             <div
                 className="d-flex justify-content-center align-items-center"
-                style={{ minHeight: "500px", minWidth: "500px", }}
+                style={{  minWidth: "500px", }}
             ><Card>
-            <Card.Header><h2>Dodaj projekt</h2></Card.Header>
+            <Card.Header><h2>Edytuj projekt:</h2></Card.Header>
             <Card.Body>
+                <div>{resultInfo.message}</div>
             <form onSubmit={sendForm} className="AddProject">
             <div className='LabelForm'>
                 <label>
@@ -83,18 +103,6 @@ export const AddProject = () => {
                         value={form.description}
                         onChange={e => updateForm('description', e.target.value)}
                     />
-                </label>
-            </div>
-            <div className='LabelForm'>
-                <label>
-                    Inwestor:
-                    <input
-                        className="InputForm"
-                        type="text"
-                        name="contact"
-                        // value={form.name}
-                        // onChange={e => updateForm('name', e.target.value)}
-                    /><br/>
                 </label>
             </div>
             <div className='LabelForm'>
@@ -145,7 +153,7 @@ export const AddProject = () => {
                     /><br/>
                 </label>
             </div>
-            <button className="ButtonForm" type="submit">Dodaj</button>
+            <button className="ButtonForm" type="submit">Zapisz zmiany</button>
         </form>
     </Card.Body>
    </Card>

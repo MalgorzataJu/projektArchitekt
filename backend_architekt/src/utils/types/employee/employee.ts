@@ -3,14 +3,14 @@ export type CreateEmployeeProfileParams = {
   lastname: string;
   hourly?: number;
 };
-// export type RegisterEmployeeRes = {
-//   name: string;
-//   lastname: string;
-//   email: string;
-//   password: string;
-//   confirm: string;
-//   hourly: number;
-// }
+export type RegisterEmployeeRes = {
+  name: string;
+  lastname: string;
+  email: string;
+  password: string;
+  confirm: string;
+  hourly: number;
+}
 
 export type CreateEmployeeRes = {
   id: string;

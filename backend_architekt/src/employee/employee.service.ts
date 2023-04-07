@@ -93,7 +93,17 @@ export class EmployeeService {
   }
 
   async updateEmployee(id: string, updateUserDetail: UpdateEmployeeDto) {
-    return await EmployeeEntity.update({ id }, { ...updateUserDetail });
+
+     await EmployeeEntity.update(
+      { id },
+      {
+        email: updateUserDetail.email,
+        authStrategy: updateUserDetail.authStrategy,
+      });
+
+     // const  profile = await this.pro
+    // await this.profileRepository.update({id}, {})
+    return true;
   }
 
   async deleteEmployee(id: string) {

@@ -9,6 +9,7 @@ interface Props {
 }
 
 export const ProjectTableRow = (props: Props) => {
+
     const deleteProject = async (e: React.MouseEvent<Element, MouseEvent>) => {
         e.preventDefault();
 
@@ -56,7 +57,7 @@ export const ProjectTableRow = (props: Props) => {
             </td>
             <td>
                 <a href="#" onClick={deleteProject}>🗑️</a>
-                {/*<a href="#" onClick={editProject}>Edytuj</a>*/}
+                <Link to={`/project/edit/${props.project.id}`}> 🖋️</Link>
 
             </td>
         </tr>

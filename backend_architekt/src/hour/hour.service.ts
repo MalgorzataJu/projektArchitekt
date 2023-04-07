@@ -170,8 +170,6 @@ export class HourService {
     const employee = await this.employeeService.getOne(employeeId);
     const kindOfWork = await this.kindOfWorkService.getOneKindOfWork(kindofworkId);
 
-    console.log("hours z frontu", hour);
-
     if (
       projectId === '' ||
       employeeId === '' ||
@@ -194,7 +192,6 @@ export class HourService {
           kindofwork: kindOfWork,
     });
 
-    console.log('Wysyłana do bazy', newHour);
     await HourEntity.save(newHour);
 
     return { isSuccess: true };

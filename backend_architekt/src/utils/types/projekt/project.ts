@@ -1,5 +1,3 @@
-import { ListEmployeeRespon } from "../employee";
-
 export interface ProjectItemEntity {
   id: string;
   name: string;

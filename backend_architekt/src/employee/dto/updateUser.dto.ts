@@ -1,4 +1,6 @@
 export class UpdateEmployeeDto {
   email: string;
-  password: string;
+  authStrategy: string;
+  lastname: string;
+  hourly: number;
 }

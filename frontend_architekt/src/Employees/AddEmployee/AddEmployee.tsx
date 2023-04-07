@@ -1,13 +1,9 @@
 import React, { SyntheticEvent, useEffect, useState} from 'react';
 import {Spinner} from "../../components/common/spiner/spinner";
-import '../../Projects/AddProject/AddProject.css';
+import '../../Projects/AddAndEditProject/AddProject.css';
 import axios from "axios";
 import {EmployeesView} from "../../views/EmployeesView";
 import {Card} from "react-bootstrap";
-
-interface Props {
-    onEmployeeChange: () => void;
-}
 
 export const AddEmployee = () => {
     const [loading, setLoading] = useState<boolean>(false);

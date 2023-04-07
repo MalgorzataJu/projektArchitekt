@@ -1,16 +1,16 @@
 import React from "react";
-import { ListEmployeeRespon } from "types";
+import {ListEmployeeRespon} from "types";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
 interface Props {
     key: string | undefined,
-    place:number,
-    employee:ListEmployeeRespon,
+    place: number,
+    employee: ListEmployeeRespon,
     onEmployeeChange: () => void;
 }
 
-export const EmployeeTableRow = (props : Props) => {
+export const EmployeeTableRow = (props: Props) => {
 
     const deleteEmployee = async (e: React.MouseEvent<Element, MouseEvent>) => {
         e.preventDefault();
@@ -20,8 +20,8 @@ export const EmployeeTableRow = (props : Props) => {
         }
 
         axios.delete(`http://localhost:3001/employee/${props.employee.id}`,
-        {withCredentials: true}
-            )
+            {withCredentials: true}
+        )
             .then((res) => {
                 if ([400, 500].includes(res.status)) {
                     const error = res.statusText;
@@ -31,12 +31,14 @@ export const EmployeeTableRow = (props : Props) => {
             });
         props.onEmployeeChange();
     };
-    return(
-        <tr  className="UserListOneItem">
+
+
+    return (
+        <tr className="UserListOneItem">
             <th>{props.place}</th>
             <td>
                 <Link to={`/employee/${props.employee.id}`}>
-                {props.employee.name}
+                    {props.employee.name}
                 </Link>
             </td>
             <td>
@@ -50,6 +52,7 @@ export const EmployeeTableRow = (props : Props) => {
             </td>
             <td>
                 <a href="#" onClick={deleteEmployee}>🗑️</a>
+                <Link to={`/employee/edit/${props.employee.id}`}> 🖋️</Link>
             </td>
 
         </tr>

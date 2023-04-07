@@ -4,7 +4,7 @@ import { ProjectSimpleRes } from 'types';
 import axios from "axios";
 import {Button, Card, Form} from "react-bootstrap";
 
-export const SingleProjectEdit = () => {
+export const TOREMSingleProjectEdit = () => {
     const [project, setProject] = useState<ProjectSimpleRes | null>(null);
     const {idOfProject} = useParams();
 
