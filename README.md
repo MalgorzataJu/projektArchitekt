@@ -36,8 +36,8 @@ Opis projektu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ![Bez tytułu]()
-<img href= "https://user-images.githubusercontent.com/41152177/230631870-780a95be-418f-461f-aae7-f9b15b848817.png"/>
-![Bez tytułu](https://user-images.githubusercontent.com/41152177/230640791-853ad331-54e0-4333-9fe1-36f07ac25411.png)
+<img href= "https://user-images.githubusercontent.com/41152177/230640791-853ad331-54e0-4333-9fe1-36f07ac25411.png"/>
+![Bez tytułu]()
 
 
 ### Built With
