@@ -1,6 +1,6 @@
 
  <h3 align="center">RCP ARCHITEKT</h3>
-
+ <div align="center" ><img  src="https://user-images.githubusercontent.com/41152177/231270014-b6cbfdc3-9281-4721-bb3d-3d2a0f20cc53.jpg"/></div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -30,23 +30,21 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 Opis projektu:
  
-Dostęp do aplikacji wyłącznie dla zarejestrowanych pracowników.
+Dostęp do aplikacji jest wyłącznie dla zarejestrowanych pracowników.
 Aplikacja ma za zadanie ułatwić rejestrację czasu pracy pracwonikom biura projektowego.  
 Godziny pracy mają związek z odpowiednim projektem ale też są kategoryzowane i przypisane do odpowiedniego pracownika.
 
 CELE Zreazlizowanie: 
-  rejeatracja czasu pracy,
-  zarządzanie pracownikami,
-  zarządanie projektami,
+  - rejeatracja czasu pracy,
+  - zarządzanie pracownikami,
+  - zarządanie projektami,
   
 CELE do zrealizowania:( w dalszym rozwoju) 
-  przydzielanie zadań i pilnowanie założonych godzin pracy,
-  statystyki pracowników i projektów,
-  ograniczenie dostępności zasobów na user i admin
+  - przydzielanie zadań i pilnowanie założonych godzin pracy,
+  - statystyki pracowników i projektów,
+  - ograniczenie dostępności zasobów na user i admin
 
 
 Umożliwia:
@@ -54,51 +52,46 @@ Umożliwia:
 - dodawanie, usuwanie i edycję projektów
 - dodawanie i usuwanie godzin pracy
 
-W dalszym rozwoju (nie udało się tego zrobić teraz) aplikacja ma umożliwaiać przeglądanie statystyk związanych z projektami i pracownikami.
-Kategoryzowanie dostępu. Obecnie wszyscy zarejestrowani mają róznoprawny dostęp do zasobów.
-
-![Bez tytułu](https://user-images.githubusercontent.com/41152177/231252712-8b3aa105-518c-4096-803f-e0b04b9117f1.png)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-![Bez tytułu]()
 
 <img href= "[https://user-images.githubusercontent.com/41152177/230640791-853ad331-54e0-4333-9fe1-36f07ac25411.pn](https://user-images.githubusercontent.com/41152177/230631870-780a95be-418f-461f-aae7-f9b15b848817.png)g"/>
-![Bez tytułu]()
 
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-
+Aplikacja została zbudowana w oparciu o:
 
 Backend:
-* [![Next][Next.js]][Next-url]
+- "@nestjs/common": "^9.0.0",
+- "typescript": "^4.7.4",
+- "typeorm": "^0.3.12",
+- "passport": "^0.6.0",
+- "passport-jwt": "^4.0.1",
 
 Frontend:
-* [![React][React.js]][React-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+- "react": "^18.2.0",
+- "react-bootstrap": "^2.7.2",
+- "axios": "^1.3.4",
+- "bootstrap": "^5.2.3",
 
-
+Baza danych:
+- MySQL 
+ 
+  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-# RCP ARCHITEKT 
-
-
-A brief description of what this project does and who it's for
 
 
 ## Demo
 
-Insert gif or link to demo
+PRINTSCRIN:
+Okno startowe:
+<img src = "https://user-images.githubusercontent.com/41152177/231267953-4f9c9a31-c1e3-4ae4-a4b9-0e33836a7ff4.jpg"/>
 
-<img src = ""/>
-## Authors
+Lista Pracowników:
+![lista pracownikow](https://user-images.githubusercontent.com/41152177/231268392-c3f5e82b-5e97-4b44-bc61-6d4894bb01b1.jpg)
 
-- [@octokatherine](https://www.github.com/octokatherine)
+WIDOK TABEL I REALACJI: 
 
-
+![Baza danych](https://user-images.githubusercontent.com/41152177/231252712-8b3aa105-518c-4096-803f-e0b04b9117f1.png)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -139,53 +132,10 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+
 
 _For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
