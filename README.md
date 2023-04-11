@@ -32,7 +32,32 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Opis projektu
+Opis projektu:
+ 
+Dostęp do aplikacji wyłącznie dla zarejestrowanych pracowników.
+Aplikacja ma za zadanie ułatwić rejestrację czasu pracy pracwonikom biura projektowego.  
+Godziny pracy mają związek z odpowiednim projektem ale też są kategoryzowane i przypisane do odpowiedniego pracownika.
+
+CELE Zreazlizowanie: 
+  rejeatracja czasu pracy,
+  zarządzanie pracownikami,
+  zarządanie projektami,
+  
+CELE do zrealizowania:( w dalszym rozwoju) 
+  przydzielanie zadań i pilnowanie założonych godzin pracy,
+  statystyki pracowników i projektów,
+  ograniczenie dostępności zasobów na user i admin
+
+
+Umożliwia:
+- dodawanie, usuwanie i edycję pracowników
+- dodawanie, usuwanie i edycję projektów
+- dodawanie i usuwanie godzin pracy
+
+W dalszym rozwoju (nie udało się tego zrobić teraz) aplikacja ma umożliwaiać przeglądanie statystyk związanych z projektami i pracownikami.
+Kategoryzowanie dostępu. Obecnie wszyscy zarejestrowani mają róznoprawny dostęp do zasobów.
+
+![Bez tytułu](https://user-images.githubusercontent.com/41152177/231252712-8b3aa105-518c-4096-803f-e0b04b9117f1.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ![Bez tytułu]()
@@ -44,6 +69,9 @@ Opis projektu
 ### Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
+
+
 Backend:
 * [![Next][Next.js]][Next-url]
 
@@ -166,26 +194,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+-Małgorzata Jurczak -gmjurczak@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+Project Link: [[https://github.com/your_username/repo_name](https://github.com/MalgorzataJu/projektArchitekt)]([https://github.com/your_username/repo_name](https://github.com/MalgorzataJu/projektArchitekt))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
