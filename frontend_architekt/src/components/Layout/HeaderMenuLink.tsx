@@ -16,13 +16,13 @@ export const HeaderMenuLink = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     {user && (
                         <Nav  justify className="me-auto">
-                        <Nav.Link as={Link} to="/employee">Pracownicy</Nav.Link>
-                        <Nav.Link  as={Link} to="/hours">Godziny</Nav.Link>
-                        <Nav.Link as={Link} to="/projects">Projekty</Nav.Link>
+                            <Nav.Link as={Link} to="/projects">Projekty</Nav.Link>
+                            <Nav.Link as={Link} to="/employee">Pracownicy</Nav.Link>
+                            <Nav.Link  as={Link} to="/hours">Godziny</Nav.Link>
                             <NavDropdown title="Dodaj" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/add-project">Projekt</NavDropdown.Item>
                                 <NavDropdown.Item href="/add-employee">Pracownika</NavDropdown.Item>
-                                <NavDropdown.Item href="/add-task"> Zadanie</NavDropdown.Item>
+                                {/*<NavDropdown.Item href="/add-task"> Zadanie</NavDropdown.Item>*/}
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="/add-hour">Godziny Pracy</NavDropdown.Item>
                             </NavDropdown>

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
 import axios from "axios";
-import { Button, Card, Form, Table} from "react-bootstrap";
+import { Button, Card, Table} from "react-bootstrap";
 import { EmployeeResAllInfo } from 'types';
 
 export const SingleEmployeeView = () => {
@@ -46,11 +46,11 @@ export const SingleEmployeeView = () => {
                     </tr>
                     </tbody>
                 </Table>
-                {/*<Link to={`/project/edit/${props.project.id}`}>*/}
+                <Link to={`/employee/edit/${employee.id}`}>
                     <Button variant="secondary" type="submit" >
                         Edit
                     </Button>
-                {/*</Link>*/}
+                </Link>
             </Card>
         </div>
     </>;

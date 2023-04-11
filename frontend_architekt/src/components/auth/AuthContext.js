@@ -11,6 +11,7 @@ export const AuthContextProvider = ({ children }) => {
     let userProfle = localStorage.getItem("jwt");
 
     if (userProfle) {
+      console.log(userProfle)
       return JSON.parse(userProfle);
     }
     return null;
@@ -24,16 +25,17 @@ export const AuthContextProvider = ({ children }) => {
       withCredentials: true,
     });
 
-    // if (apiResponse.data.isOk === false ) {
-    //   setUser(null);
-    // } else {
+    if (apiResponse.data.isOk === false ) {
+      setUser(null);
+    } else {
     localStorage.setItem("jwt", JSON.stringify(apiResponse.data));
     setUser(apiResponse.data);
     navigate("/");
-    // }
+    }
   };
 
   const logout = async () => {
+
     localStorage.removeItem("jwt");
 
     await axios.get("http://localhost:3001/auth/logout",

@@ -117,7 +117,7 @@ export const AddEmployee = () => {
         <div
             style={{height: '30px', color: 'red'}}
         >{printError()}</div>
-        <form onSubmit={sendForm} className="AddProject">
+        <form onSubmit={sendForm}>
             <div >{resultInfo.message}</div>
             <div className='LabelForm'>
             <label>

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
 import { ProjectSimpleRes } from 'types';
 import axios from "axios";
-import {  Button, Card, Form, Table} from "react-bootstrap";
+import {  Button, Card, Table} from "react-bootstrap";
 
 export const SingleProjectView = () => {
     const [project, setProject] = useState<ProjectSimpleRes | null>(null);
