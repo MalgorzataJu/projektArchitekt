@@ -43,8 +43,9 @@ Umożliwia:
 
 CELE do zrealizowania:( w dalszym rozwoju) 
   - przydzielanie zadań i pilnowanie założonych godzin pracy,
-  - statystyki pracowników i projektów,
+  - statystyki pracowników i projektów, zliczanie ilości godzin itp.
   - ograniczenie dostępności zasobów na user i admin
+  
   
 
 <img href= "[https://user-images.githubusercontent.com/41152177/230640791-853ad331-54e0-4333-9fe1-36f07ac25411.pn](https://user-images.githubusercontent.com/41152177/230631870-780a95be-418f-461f-aae7-f9b15b848817.png)g"/>
@@ -79,7 +80,6 @@ Baza danych:
 Wersja Demo: 
 - email and password: test@test
 - https://crparchitekt.4pages.pl
-
 
 Okno startowe:
 <img src = "https://user-images.githubusercontent.com/41152177/231267953-4f9c9a31-c1e3-4ae4-a4b9-0e33836a7ff4.jpg"/>
