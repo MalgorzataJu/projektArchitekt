@@ -20,15 +20,12 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
 
 Opis projektu:
  
@@ -84,6 +81,11 @@ Baza danych:
 
 
 ![React-App-—-Osobisty-—-Microsoft_-Edge-2023-04-12-12-57-56](https://user-images.githubusercontent.com/41152177/231442253-3d80edf6-34c7-4555-a07c-3840939c2837.gif)
+
+Here is a working live demo: 
+Jeśli chcesz przetestować: 
+- email and password: test@test
+- https://crparchitekt.4pages.pl/ 
 
 
 PRINTSCRIN:
