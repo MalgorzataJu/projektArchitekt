@@ -99,31 +99,30 @@ WIDOK TABEL I REALACJI:
 
 ![Baza danych](https://user-images.githubusercontent.com/41152177/231252712-8b3aa105-518c-4096-803f-e0b04b9117f1.png)
 
-<!-- GETTING STARTED -->
-## Getting Started
-
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone repozytorium
    ```sh
    git clone https://github.com/MalgorzataJu/projektArchitekt
    ```
-3. Install NPM packages
+2. Wejdz do folderu z backendem i frontendem oddzielnie wykonaj:
    ```sh
    npm install
    ```
-4. Stwórz bazę danych na postawie config.js
+3. Stwórz bazę danych na postawie config.js
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   export const config = {
+    dbHost: 'localhost',
+    dbUser: 'root',
+    dbPassword: 'password',
+    dbDatabase: 'database',
+}
    ```
 
-5. Enter your API in `config.js`
+4. Uruchom backend
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   nest start
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -133,7 +132,6 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- CONTACT -->
 ## Contact
 
--Małgorzata Jurczak -gmjurczak@gmail.com
+-Małgorzata Jurczak: gmjurczak@gmail.com
 
-* Zdjęcie użyte jako tło w projekcie jest własnością biura projektowego Emilia Bogdanowicz Architekt, użyczone na potrzeby projektu. 
-
+* Zdjęcie użyte jako tło w p
