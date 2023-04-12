@@ -108,8 +108,7 @@ WIDOK TABEL I REALACJI:
     dbHost: 'localhost',
     dbUser: 'root',
     dbPassword: 'password',
-    dbDatabase: 'database',
-}
+    dbDatabase: 'database',}
    ```
 
 4. Uruchom backend
