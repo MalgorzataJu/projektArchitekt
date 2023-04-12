@@ -13,13 +13,10 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -72,9 +69,6 @@ Frontend:
 
 Baza danych:
 - MySQL 
- 
-  
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## Demo
@@ -128,8 +122,6 @@ WIDOK TABEL I REALACJI:
    react-app-rewired start
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- CONTACT -->
@@ -137,4 +129,4 @@ WIDOK TABEL I REALACJI:
 
 -Małgorzata Jurczak: gmjurczak@gmail.com
 
-* Zdjęcie użyte jako tło w projekcie jest własnością biura projektowego Emilia Bogdanowicz Architekt
+* Zdjęcie użyte jako tło w projekcie jest własnością biura projektowego "Emilia Bogdanowicz Architekt"
