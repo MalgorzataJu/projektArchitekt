@@ -82,6 +82,11 @@ Baza danych:
 
 ## Demo
 
+[![Watch the video](https://www.youtube.com/watch?v=iAjGGsiAv80)](https://youtu.be/iAjGGsiAv80)
+
+
+[![Watch the video](https://img.youtube.com/vi/iAjGGsiAv80/maxresdefault.jpg)](https://youtu.be/iAjGGsiAv80)
+https://youtu.be/<VIDEO URL>
 PRINTSCRIN:
 Okno startowe:
 <img src = "https://user-images.githubusercontent.com/41152177/231267953-4f9c9a31-c1e3-4ae4-a4b9-0e33836a7ff4.jpg"/>
