@@ -82,7 +82,7 @@ Baza danych:
 
 ![React-App-—-Osobisty-—-Microsoft_-Edge-2023-04-12-12-57-56](https://user-images.githubusercontent.com/41152177/231442253-3d80edf6-34c7-4555-a07c-3840939c2837.gif)
 
-Here is a working live demo: 
+Wersja Demo: 
 - email and password: test@test
 - https://crparchitekt.4pages.pl
 
