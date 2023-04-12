@@ -84,9 +84,9 @@ Baza danych:
 
 Here is a working live demo: 
 - email and password: test@test
-- https://crparchitekt.4pages.pl/ 
+- https://crparchitekt.4pages.pl
 
-<a href="https://crparchitekt.4pages.pl" target="_blank">DEMO </a> 
+
 
 PRINTSCRIN:
 Okno startowe:
@@ -155,7 +155,5 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 -Małgorzata Jurczak -gmjurczak@gmail.com
 
-Project Link: [[https://github.com/your_username/repo_name](https://github.com/MalgorzataJu/projektArchitekt)]([https://github.com/your_username/repo_name](https://github.com/MalgorzataJu/projektArchitekt))
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+* Zdjęcie użyte jako tło w projekcie jest własnością biura projektowego Emilia Bogdanowicz Architekt, użyczone na potrzeby projektu. 
 
