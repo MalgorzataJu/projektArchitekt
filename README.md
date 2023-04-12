@@ -82,10 +82,8 @@ Baza danych:
 
 ## Demo
 
-https://youtu.be/ZFK0TOJAzXk
 
-
-[![Watch the video](https://img.youtube.com/viZFK0TOJAzXk/maxresdefault.jpg)](https://youtu.be/ZFK0TOJAzXk)
+![React-App-—-Osobisty-—-Microsoft_-Edge-2023-04-12-12-57-56](https://user-images.githubusercontent.com/41152177/231442253-3d80edf6-34c7-4555-a07c-3840939c2837.gif)
 
 
 PRINTSCRIN:
@@ -102,8 +100,6 @@ WIDOK TABEL I REALACJI:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
