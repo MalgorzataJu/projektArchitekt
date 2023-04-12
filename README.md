@@ -86,7 +86,7 @@ Baza danych:
 
 [![Watch the video](https://img.youtube.com/vi/iAjGGsiAv80/maxresdefault.jpg)](https://youtu.be/iAjGGsiAv80)
 
-[![Watch the video](https://img.youtube.com/vi/iAjGGsiAv80/maxresdefault.jpg)](https://youtu.be/iAjGGsiAv80)
+[![Watch the video](https://img.youtube.com/vi/iAjGGsiAv80/maxresdefault.jpg)]([https://youtu.be/iAjGGsiAv80](https://github.com/MalgorzataJu/projektArchitekt/blob/main/React%20App%20%E2%80%94%20Osobisty%20%E2%80%94%20Microsoft%E2%80%8B%20Edge%202023-04-12%2012-57-56.mp4))
 
 PRINTSCRIN:
 Okno startowe:
