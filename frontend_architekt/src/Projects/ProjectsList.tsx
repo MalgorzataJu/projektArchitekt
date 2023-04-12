@@ -4,6 +4,7 @@ import {Spinner} from "../components/common/spiner/spinner";
 import {ProjectTable} from "./ProjectTable";
 import axios from "axios";
 import {Login} from "../views/Login";
+import {apiUrl} from "../config/api";
 
 
 export const ProjectsList = () => {
@@ -13,8 +14,10 @@ export const ProjectsList = () => {
     const refreshProject = async () => {
 
         try {
+
             setProjects(null);
-            await axios.get("http://127.0.0.1:3001/project",
+
+            await axios.get(`${apiUrl}/project`,
                 {withCredentials: true}
             )
                 .then((response) => {
@@ -26,16 +29,15 @@ export const ProjectsList = () => {
                     return error.response;
                 });
         }finally {
-            // setIsLogin(false)
+
         }}
 
     useEffect(() => {
         refreshProject();
     }, []);
 
-
     if (!isLogin) return <Login/>
-
+    
     if (projects === null) {
         return <Spinner/>;
     }

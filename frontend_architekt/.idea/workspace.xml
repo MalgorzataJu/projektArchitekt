@@ -5,14 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a22feb4e-a6d6-48df-8490-f2b9a7939b09" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/app.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/employee/dto/updateUser.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/employee/dto/updateUser.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/employee/employee.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/entities/Employee.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/entities/Employee.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/hour/hour.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/hour/hour.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/project/project.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/project/project.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_architekt/src/task/task.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_architekt/src/task/task.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Employees/AddEmployee/AddEmployee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/AddEmployee/AddEmployee.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Employees/AddEmployee/EditEmployee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/AddEmployee/EditEmployee.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Employees/EmployeeTableRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/EmployeeTableRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Employees/EmployeesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/EmployeesList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Employees/SingleEmployeeView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees/SingleEmployeeView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hours/AddHours/AddHours.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hours/AddHours/AddHours.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hours/HoursList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hours/HoursList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hours/HoursTableRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hours/HoursTableRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projects/AddAndEditProject/AddProject.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/AddAndEditProject/AddProject.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projects/AddAndEditProject/EditProject.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/AddAndEditProject/EditProject.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projects/ProjectTableRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/ProjectTableRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projects/ProjectsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/ProjectsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Projects/SingleProjectView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projects/SingleProjectView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/HeaderMenuLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/HeaderMenuLink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projects/TO REM SingleProjectEdit.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/auth/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/AuthContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/jwtInterceptor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/jwtInterceptor.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +55,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/mj/OneDrive/Pulpit/EMilia Współpraca/MEGAKA NA ZALICZENIE/backend_architekt",
+    "last_opened_file_path": "C:/Users/mj/OneDrive/Pulpit/MEGAKURS/Projekt z mapami",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,11 +74,11 @@
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\components\Layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\components\Layout" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\src\components" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\views" />
       <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\components" />
-      <recent name="C:\Users\mj\OneDrive\Pulpit\EMilia Współpraca\MEGAKA NA ZALICZENIE\frontend_architekt\src\components\Authentication" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -108,7 +127,7 @@
       <workItem from="1680676218785" duration="33144000" />
       <workItem from="1680761795182" duration="65095000" />
       <workItem from="1680894124642" duration="7000" />
-      <workItem from="1681231282651" duration="3573000" />
+      <workItem from="1681231282651" duration="12874000" />
     </task>
     <servers />
   </component>

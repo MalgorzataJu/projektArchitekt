@@ -1,6 +1,7 @@
 import { ProjectSimpleRes} from "types";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import {apiUrl} from "../config/api";
 
 interface Props {
     project: ProjectSimpleRes;
@@ -17,7 +18,7 @@ export const ProjectTableRow = (props: Props) => {
             return;
         }
 
-        const res = await axios.delete(`http://127.0.0.1:3001/project/${props.project.id}`, {
+        const res = await axios.delete(`${apiUrl}/project/${props.project.id}`, {
             withCredentials: true,
         });
 

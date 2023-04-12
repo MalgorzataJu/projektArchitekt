@@ -5,6 +5,7 @@ import './AddProject.css';
 import {Card} from "react-bootstrap";
 import {ProjectsView} from "../../views/ProjectsView";
 import axios from "axios";
+import {apiUrl} from "../../config/api";
 
 export const AddProject = () => {
     const [form, setForm] = useState<CreateProject>({
@@ -43,7 +44,7 @@ export const AddProject = () => {
         setLoading(true);
 
         try {
-            const res = await axios.post(`http://localhost:3001/project`, form,
+            const res = await axios.post(`${apiUrl}/project`, form,
             {withCredentials: true}
             );
             const data: ProjectItemEntity = await res.data;

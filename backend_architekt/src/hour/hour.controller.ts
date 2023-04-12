@@ -20,6 +20,7 @@ import { UserObj } from "../decorators/user-obj.decorator";
 import { EmployeeEntity } from "../entities/Employee.entity";
 
 @Controller('/hour')
+@UseGuards(AuthGuard('jwt'))
 export class HourController {
   constructor(@Inject(HourService) private hourService: HourService) {}
 
@@ -31,8 +32,8 @@ export class HourController {
   }
 
   @Get('/add')
-  // @UseGuards(AuthGuard('jwt'))
-  // @UseInterceptors(MyTimeoutInterceptor)
+  @UseGuards(AuthGuard('jwt'))
+  @UseInterceptors(MyTimeoutInterceptor)
   listProjectEmployeeAnKindOfWorkToAddHours(): Promise<ListAllToAddHoursRes> {
     return this.hourService.listProjectEmployeeKindeOfWorkAll();
   }

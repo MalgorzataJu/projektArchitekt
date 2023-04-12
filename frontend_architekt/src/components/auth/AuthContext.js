@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {apiUrl} from "../../config/api";
 
 const AuthContext = createContext();
 
@@ -21,7 +22,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const login = async (payload) => {
 
-    let apiResponse = await axios.post("http://localhost:3001/auth/login", payload, {
+    let apiResponse = await axios.post(`${apiUrl}/auth/login`, payload, {
       withCredentials: true,
     });
 
@@ -38,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
 
     localStorage.removeItem("jwt");
 
-    await axios.get("http://localhost:3001/auth/logout",
+    await axios.get(`${apiUrl}/auth/logout`,
         { withCredentials: true }
         );
     setUser(null);

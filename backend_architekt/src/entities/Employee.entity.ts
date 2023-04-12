@@ -47,7 +47,6 @@ export class EmployeeEntity extends BaseEntity implements CreateEmployeeDto{
   })
   currentTokenId: string | null;
 
-
   @OneToOne((type) => ProfileEntity)
   @JoinColumn()
   profile: ProfileEntity;

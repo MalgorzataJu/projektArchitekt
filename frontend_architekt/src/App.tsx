@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
     return (
         <>
-        <div style={{
+        <div className="App-div" style={{
             backgroundImage: `url(${Background})`,
             height:'95vh',
             backgroundSize: 'cover',

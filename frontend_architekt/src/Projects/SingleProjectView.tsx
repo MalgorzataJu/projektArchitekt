@@ -3,6 +3,7 @@ import {Link, useParams} from "react-router-dom";
 import { ProjectSimpleRes } from 'types';
 import axios from "axios";
 import {  Button, Card, Table} from "react-bootstrap";
+import {apiUrl} from "../config/api";
 
 export const SingleProjectView = () => {
     const [project, setProject] = useState<ProjectSimpleRes | null>(null);
@@ -11,7 +12,7 @@ export const SingleProjectView = () => {
     useEffect(() => {
         (async () => {
 
-            const res =await axios.get(`http://localhost:3001/project/${idOfProject}`, {
+            const res =await axios.get(`${apiUrl}/project/${idOfProject}`, {
                 withCredentials: true,
             });
             setProject(await res.data);

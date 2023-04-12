@@ -1,5 +1,6 @@
 import {HoursItemRes} from "types";
 import axios from "axios";
+import {apiUrl} from "../config/api";
 
 interface Props {
     hour: HoursItemRes;
@@ -16,7 +17,7 @@ export const HoursTableRow = (props: Props) => {
             return;
         }
 
-        const res = await axios.delete(`http://127.0.0.1:3001/hour/${props.hour.id}`, {
+        const res = await axios.delete(`${apiUrl}/hour/${props.hour.id}`, {
             withCredentials: true,
         });
 

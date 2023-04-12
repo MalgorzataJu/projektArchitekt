@@ -4,6 +4,7 @@ import {Spinner} from "../../components/common/spiner/spinner";
 import {Card} from "react-bootstrap";
 import axios from "axios";
 import {HoursView} from "../../views/HoursView";
+import {apiUrl} from "../../config/api";
 
 interface Props {
     // onEmployeeChange: () => void;
@@ -39,7 +40,7 @@ export const AddHours = (props: Props) => {
     const refreshHours = async () => {
 
         try {
-            await axios.get("http://localhost:3001/hour/add",
+            await axios.get(`${apiUrl}/hour/add`,
                 {withCredentials: true}
                     )
                 .then((response) => {
@@ -72,7 +73,7 @@ export const AddHours = (props: Props) => {
         console.log('FORM', form);
 
         try {
-            await axios.post("http://localhost:3001/hour", form,
+            await axios.post(`${apiUrl}/hour`, form,
                 {withCredentials: true}
             )
                 .then((response) => {

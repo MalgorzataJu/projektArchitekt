@@ -1,10 +1,12 @@
-import { Body, Controller, Delete, Get, Inject, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Inject, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { TaskService } from "./task.service";
 import { CreateTaskDto } from "./dto/createTask.dto";
 import { UpdateTaskDto } from "./dto/updateTask.dto";
 import { ListTaskResAll } from "../utils/types";
+import { AuthGuard } from "@nestjs/passport";
 
 @Controller('/task')
+@UseGuards(AuthGuard('jwt'))
 export class TaskController {
   constructor(@Inject(TaskService) private taskService: TaskService) {
   }

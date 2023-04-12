@@ -6,6 +6,7 @@ import {Card} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {ProjectsView} from "../../views/ProjectsView";
+import {apiUrl} from "../../config/api";
 
 export const EditProject = () => {
     const {idOfProject} = useParams();
@@ -27,7 +28,7 @@ export const EditProject = () => {
     useEffect(() => {
         (async () => {
 
-            const res =await axios.get(`http://localhost:3001/project/${idOfProject}`, {
+            const res =await axios.get(`${apiUrl}/project/${idOfProject}`, {
                 withCredentials: true,
             });
             const project = await res.data;
@@ -55,7 +56,7 @@ export const EditProject = () => {
 
         setLoading(true);
         try {
-            const res = await axios.put(`http://localhost:3001/project/${idOfProject}`, form,
+            const res = await axios.put(`${apiUrl}/project/${idOfProject}`, form,
                 {withCredentials: true}
                 );
             const data: ProjectItemEntity = await res.data;

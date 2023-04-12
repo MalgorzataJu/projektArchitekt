@@ -4,6 +4,7 @@ import '../../Projects/AddAndEditProject/AddProject.css';
 import axios from "axios";
 import {EmployeesView} from "../../views/EmployeesView";
 import {Card} from "react-bootstrap";
+import {apiUrl} from "../../config/api";
 
 export const AddEmployee = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -35,7 +36,7 @@ export const AddEmployee = () => {
         setLoading(true);
 
         try {
-            axios.post("http://localhost:3001/employee/register", form,
+            axios.post(`${apiUrl}/employee/register`, form,
                 {withCredentials: true}
             )
                 .then((response) => {

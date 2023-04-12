@@ -4,6 +4,7 @@ import jwtInterceptor from "../helpers/jwtInterceptor";
 import {AddEmployee} from "../Employees/AddEmployee/AddEmployee";
 import {HoursTable} from "./HoursTable";
 import { ListHourResAll } from "types";
+import {apiUrl} from "../config/api";
 
 export const HoursList = () => {
     const [hoursList, setHoursList] = useState<ListHourResAll[] | null>([]);
@@ -13,7 +14,7 @@ export const HoursList = () => {
     try {
         setHoursList(null)
         jwtInterceptor
-            .get("http://localhost:3001/hour",
+            .get(`${apiUrl}/hour`,
                 {withCredentials: true}
             )
             .then((response) => {

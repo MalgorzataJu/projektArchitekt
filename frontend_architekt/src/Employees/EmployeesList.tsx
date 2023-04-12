@@ -4,6 +4,7 @@ import {Spinner} from "../components/common/spiner/spinner";
 import {EmployeeTable} from "./EmployeeTable";
 import axios from "axios";
 import {Login} from "../views/Login";
+import {apiUrl} from "../config/api";
 
 
 export const EmployeesList = () => {
@@ -16,7 +17,7 @@ export const EmployeesList = () => {
         try {
                 setList(null)
 
-                await axios.get("http://localhost:3001/employee",
+                await axios.get(`${apiUrl}/employee`,
                     {withCredentials: true}
                 )
                 .then((response) => {
@@ -25,7 +26,6 @@ export const EmployeesList = () => {
                 })
                 .catch(error => {
                     console.log(error.response);
-
                     return error.response;
                 }) ;
 

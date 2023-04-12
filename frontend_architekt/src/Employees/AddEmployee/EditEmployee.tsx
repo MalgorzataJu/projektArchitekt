@@ -5,6 +5,7 @@ import {Card} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {EmployeesView} from "../../views/EmployeesView";
+import {apiUrl} from "../../config/api";
 
 export const EditEmployee = () => {
     const {idOfEmployee} = useParams();
@@ -24,7 +25,7 @@ export const EditEmployee = () => {
     useEffect(() => {
         (async () => {
 
-            const res =await axios.get(`http://localhost:3001/employee/${idOfEmployee}`, {
+            const res =await axios.get(`${apiUrl}/employee/${idOfEmployee}`, {
                 withCredentials: true,
             });
             const employee = await res.data;
@@ -53,7 +54,7 @@ export const EditEmployee = () => {
 
         setLoading(true);
         try {
-            const res = await axios.put(`http://localhost:3001/employee/${idOfEmployee}`, form,
+            const res = await axios.put(`${apiUrl}/employee/${idOfEmployee}`, form,
                 {withCredentials: true}
                 );
             const data = await res.data;

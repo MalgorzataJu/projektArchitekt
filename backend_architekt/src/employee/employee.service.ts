@@ -15,6 +15,7 @@ import {
 import { UpdateEmployeeDto } from './dto/updateUser.dto';
 import { RegisterEmployeeRegDto } from './dto/registerEmployeeReg.dto';
 import { hashPwd } from '../utils/hash-pwd';
+import { CreateEmployeeProfileDto } from "./dto/createEmployeeProfile.dto";
 
 @Injectable()
 export class EmployeeService {
@@ -24,8 +25,7 @@ export class EmployeeService {
     return {id, email }
   }
   constructor(
-    @InjectRepository(ProfileEntity)
-    private profileRepository: Repository<ProfileEntity>,
+    @InjectRepository(ProfileEntity) private profileRepository: Repository<ProfileEntity>,
   ) {}
 
   async allEmployee(): Promise<ListEmployeeResAll[]>{
@@ -54,7 +54,6 @@ export class EmployeeService {
       where: { id },
       relations: ['profile'],
     });
-   console.log(employee);
 
     return {
       id:employee.id,
@@ -94,16 +93,25 @@ export class EmployeeService {
 
   async updateEmployee(id: string, updateUserDetail: UpdateEmployeeDto) {
 
-     await EmployeeEntity.update(
+    await EmployeeEntity.update(
       { id },
       {
         email: updateUserDetail.email,
         authStrategy: updateUserDetail.authStrategy,
       });
 
-     // const  profile = await this.pro
-    // await this.profileRepository.update({id}, {})
-    return true;
+    const updateEmployee =  await EmployeeEntity.findOne({where:{ id }, relations:['profile']});
+
+    await this.profileRepository.update(
+      { id:updateEmployee.profile.id },
+      {
+              name: updateUserDetail.name,
+              lastname: updateUserDetail.lastname,
+              hourly: updateUserDetail.hourly,
+      },
+      );
+
+    return updateEmployee;
   }
 
   async deleteEmployee(id: string) {
@@ -126,4 +134,22 @@ export class EmployeeService {
 
     return EmployeeEntity.save(user);
   }
+
+    async updateEmployeeProfile(
+      id: string,
+      updateUserProfileDetails: CreateEmployeeProfileDto,
+  ) {
+      const user = await EmployeeEntity.findOneBy({ id });
+      if (!user)
+        throw new HttpException(
+          'User not found. Cannot create Profile',
+          HttpStatus.BAD_REQUEST,
+        );
+
+      const updateProfile = await this.profileRepository.update({id}, updateUserProfileDetails);
+      // const savedProfile = await this.profileRepository.save(newProfile);
+      // user.profile = updateProfile;
+
+      return EmployeeEntity.save(user);
+    }
 }

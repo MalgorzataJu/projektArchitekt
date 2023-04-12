@@ -2,6 +2,7 @@ import React from "react";
 import {ListEmployeeRespon} from "types";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import {apiUrl} from "../config/api";
 
 interface Props {
     key: string | undefined,
@@ -19,7 +20,7 @@ export const EmployeeTableRow = (props: Props) => {
             return;
         }
 
-        axios.delete(`http://localhost:3001/employee/${props.employee.id}`,
+        axios.delete(`${apiUrl}/employee/${props.employee.id}`,
             {withCredentials: true}
         )
             .then((res) => {

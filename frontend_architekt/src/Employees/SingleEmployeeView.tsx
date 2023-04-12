@@ -3,6 +3,7 @@ import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import { Button, Card, Table} from "react-bootstrap";
 import { EmployeeResAllInfo } from 'types';
+import {apiUrl} from "../config/api";
 
 export const SingleEmployeeView = () => {
     const [employee, setEmployee] = useState<EmployeeResAllInfo | null>(null);
@@ -11,7 +12,7 @@ export const SingleEmployeeView = () => {
     useEffect(() => {
         (async () => {
 
-            const res =await axios.get(`http://localhost:3001/employee/${idOfEmployee}`, {
+            const res =await axios.get(`${apiUrl}/employee/${idOfEmployee}`, {
                 withCredentials: true,
             });
             setEmployee(await res.data);

@@ -20,14 +20,13 @@ import { MyTimeoutInterceptor } from "../interceptors/my-timeout.interceptor";
 import { UserObj } from "../decorators/user-obj.decorator";
 
 @Controller('/employee')
-// @UseGuards(AuthGuard('jwt'))
+@UseGuards(AuthGuard('jwt'))
 export class EmployeeController {
   constructor(
     @Inject(EmployeeService) private employeeService: EmployeeService,
   ) {}
 
   @Get('/')
-  @UseGuards(AuthGuard('jwt'))
   @UseInterceptors(MyTimeoutInterceptor)
   getEmployee(){
     return this.employeeService.allEmployee();
