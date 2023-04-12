@@ -82,11 +82,11 @@ Baza danych:
 
 ## Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iAjGGsiAv80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 [![Watch the video](https://img.youtube.com/vi/iAjGGsiAv80/maxresdefault.jpg)](https://youtu.be/iAjGGsiAv80)
 
-[![Watch the video](https://img.youtube.com/vi/iAjGGsiAv80/maxresdefault.jpg)]([https://youtu.be/iAjGGsiAv80](https://github.com/MalgorzataJu/projektArchitekt/blob/main/React%20App%20%E2%80%94%20Osobisty%20%E2%80%94%20Microsoft%E2%80%8B%20Edge%202023-04-12%2012-57-56.mp4))
+[![Watch the video]](https://github.com/MalgorzataJu/projektArchitekt/blob/main/React%20App%20%E2%80%94%20Osobisty%20%E2%80%94%20Microsoft%E2%80%8B%20Edge%202023-04-12%2012-57-56.mp4)]
+
+())
 
 PRINTSCRIN:
 Okno startowe:
