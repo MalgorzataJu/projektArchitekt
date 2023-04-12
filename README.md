@@ -41,7 +41,7 @@ Umożliwia:
 - dodawanie i usuwanie godzin pracy
 
 
-CELE do zrealizowania:( w dalszym rozwoju) 
+CELE do zrealizowania w dalszym rozwoju: 
   - przydzielanie zadań i pilnowanie założonych godzin pracy,
   - statystyki pracowników i projektów, zliczanie ilości godzin itp.
   - ograniczenie dostępności zasobów na user i admin
