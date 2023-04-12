@@ -33,7 +33,7 @@ Dostęp do aplikacji jest wyłącznie dla zarejestrowanych pracowników.
 Aplikacja ma za zadanie ułatwić rejestrację czasu pracy pracwonikom biura projektowego.  
 Godziny pracy mają związek z odpowiednim projektem ale też są kategoryzowane i przypisane do odpowiedniego pracownika.
 
-CELE Zreazlizowanie: 
+CELE Zrealizowanie: 
   - rejeatracja czasu pracy,
   - zarządzanie pracownikami,
   - zarządanie projektami,
@@ -87,8 +87,6 @@ Here is a working live demo:
 - https://crparchitekt.4pages.pl
 
 
-
-PRINTSCRIN:
 Okno startowe:
 <img src = "https://user-images.githubusercontent.com/41152177/231267953-4f9c9a31-c1e3-4ae4-a4b9-0e33836a7ff4.jpg"/>
 
@@ -124,6 +122,11 @@ WIDOK TABEL I REALACJI:
    ```js
    nest start
    ```
+   
+5. Uruchom frontend
+   ```js
+   react-app-rewired start
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,4 +137,4 @@ WIDOK TABEL I REALACJI:
 
 -Małgorzata Jurczak: gmjurczak@gmail.com
 
-* Zdjęcie użyte jako tło w p
+* Zdjęcie użyte jako tło w projekcie jest własnością biura projektowego Emilia Bogdanowicz Architekt
