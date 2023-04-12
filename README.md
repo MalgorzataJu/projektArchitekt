@@ -86,7 +86,7 @@ Here is a working live demo:
 - email and password: test@test
 - https://crparchitekt.4pages.pl/ 
 
-<a href="https://crparchitekt.4pages.pl" target="_blank">https://crparchitekt.4pages.pl/</a> 
+<a href="https://crparchitekt.4pages.pl" target="_blank">DEMO </a> 
 
 PRINTSCRIN:
 Okno startowe:
